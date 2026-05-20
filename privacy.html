@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Line Notes</title>
+  <meta name="description" content="Line Notes privacy policy — how we collect, use, and protect your data.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:            #E8221A;
+      --red-dim:        #B81A13;
+      --bg-deep:        #0D0D0D;
+      --bg-base:        #141414;
+      --bg-card:        #1C1C1C;
+      --bg-border:      #2E2E2E;
+      --text-primary:   #EDEBE6;
+      --text-secondary: #A8A6A1;
+      --text-muted:     #5E5C58;
+    }
+
+    html, body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: var(--red); color: #fff; }
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+    /* NAV */
+    .site-nav {
+      position: sticky; top: 0; z-index: 60;
+      display: flex; align-items: center; gap: 24px;
+      height: 56px; padding: 0 32px;
+      background: rgba(13,13,13,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bg-border);
+    }
+    .nav-wordmark {
+      font-size: 17px; font-weight: 700; letter-spacing: 0;
+      color: var(--text-primary);
+      padding-right: 24px;
+      border-right: 1px solid var(--bg-border);
+      height: 56px; display: flex; align-items: center;
+      text-decoration: none;
+    }
+    .nav-wordmark:hover { text-decoration: none; }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary);
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+    .nav-back svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    /* HEADER */
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--bg-border);
+    }
+    .page-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-size: 32px; font-weight: 700; line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .page-header .last-updated {
+      font-size: 13px; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* CONTENT */
+    .legal-body h2 {
+      font-size: 18px; font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 48px; margin-bottom: 14px;
+    }
+    .legal-body h3 {
+      font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-top: 28px; margin-bottom: 10px;
+      font-family: 'DM Mono', monospace;
+    }
+    .legal-body p {
+      font-size: 15px; color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .legal-body ul, .legal-body ol {
+      font-size: 15px; color: var(--text-secondary);
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-body li { margin-bottom: 6px; }
+    .legal-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--bg-border);
+      margin: 48px 0;
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-border);
+      padding: 24px 28px;
+      margin-top: 48px;
+    }
+    .contact-box p {
+      margin-bottom: 8px;
+    }
+    .contact-box p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 600px) {
+      .page-wrap { padding: 40px 20px 72px; }
+      .page-header h1 { font-size: 26px; }
+      .site-nav { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-wordmark" href="/">LINE NOTES</a>
+  <a class="nav-back" href="/">
+    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8.5 2L3.5 7L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to home
+  </a>
+</nav>
+
+<main class="page-wrap">
+
+  <header class="page-header">
+    <div class="page-label">Legal</div>
+    <h1>Privacy Policy</h1>
+    <div class="last-updated">Last updated: May 2026</div>
+  </header>
+
+  <div class="legal-body">
+
+    <p>Line Notes Inc. ("Line Notes," "we," "our," or "us") operates the Line Notes stage management platform at <strong>linenotesapp.com</strong>. This Privacy Policy explains what information we collect, how we use it, and the rights you have over your data.</p>
+
+    <p>By creating an account or using the Line Notes service, you agree to the practices described in this policy. If you do not agree, please discontinue use of the service.</p>
+
+    <h2>1. Information We Collect</h2>
+
+    <h3>Account Information</h3>
+    <p>When you register for a Line Notes account, we collect:</p>
+    <ul>
+      <li>Name and email address</li>
+      <li>Password (stored as a secure hash via Firebase Authentication — we never store plaintext passwords)</li>
+      <li>Profile information you choose to provide</li>
+    </ul>
+
+    <h3>Production and Usage Data</h3>
+    <p>As you use Line Notes, we store the data you create:</p>
+    <ul>
+      <li><strong>Line notes</strong> — the notes you log during run sessions, including text content, note type, associated cast member, and timestamp</li>
+      <li><strong>Cast lists</strong> — character-to-actor assignments and related metadata for your productions</li>
+      <li><strong>Run session records</strong> — session start/end times, cue data, and session-linked notes</li>
+      <li><strong>PDF scripts</strong> — script files you upload to the platform, stored in Firebase Storage</li>
+      <li><strong>Script zones and cue marks</strong> — the annotations and zone boundaries you draw on script pages</li>
+      <li><strong>Production settings</strong> — production names, join codes, member lists, and role assignments</li>
+    </ul>
+
+    <h3>Usage and Technical Data</h3>
+    <p>We automatically collect certain technical information when you use the service:</p>
+    <ul>
+      <li>Browser type, operating system, and device type</li>
+      <li>IP address and approximate geographic location</li>
+      <li>Pages visited, features used, and time spent within the app</li>
+      <li>Error logs and crash reports</li>
+      <li>Authentication events (sign-in timestamps, method used)</li>
+    </ul>
+
+    <h3>Cookies and Local Storage</h3>
+    <p>We use browser cookies and local storage to maintain your authenticated session and remember your preferences. Firebase Authentication sets a session cookie to keep you signed in. We do not use cookies for cross-site advertising or tracking.</p>
+
+    <h2>2. How We Use Your Information</h2>
+
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li><strong>Deliver the service</strong> — store and sync your productions, notes, sessions, and scripts across devices in real time</li>
+      <li><strong>Authenticate you</strong> — verify your identity and enforce role-based access within productions</li>
+      <li><strong>Send transactional communications</strong> — confirmations, password resets, and service-critical notifications</li>
+      <li><strong>Improve the product</strong> — analyze aggregate usage patterns to prioritize features and fix bugs</li>
+      <li><strong>Ensure security</strong> — detect and prevent unauthorized access, abuse, or fraudulent activity</li>
+      <li><strong>Comply with legal obligations</strong> — respond to lawful requests from government authorities when required</li>
+    </ul>
+
+    <p>We do not sell your personal data. We do not use your line notes content, scripts, or production data to train machine learning models.</p>
+
+    <h2>3. Third-Party Services</h2>
+
+    <p>Line Notes is built on Google Firebase, a platform provided by Google LLC. The following Firebase services process your data on our behalf:</p>
+    <ul>
+      <li><strong>Firebase Authentication</strong> — manages user accounts and sign-in credentials</li>
+      <li><strong>Cloud Firestore</strong> — stores structured data including notes, cast lists, sessions, and production settings</li>
+      <li><strong>Firebase Storage</strong> — stores uploaded PDF script files</li>
+      <li><strong>Firebase Hosting</strong> — serves the Line Notes web application</li>
+      <li><strong>Cloud Functions for Firebase</strong> — executes server-side logic such as production join flows</li>
+    </ul>
+
+    <p>Google's privacy practices are described at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>. Data processed through Firebase is subject to Google's data processing terms. Firebase stores data in Google Cloud infrastructure; your data is stored in the United States unless we configure otherwise.</p>
+
+    <p>We may use additional third-party services for analytics or error monitoring. Any such services are vetted for compliance with applicable privacy law and are bound by data processing agreements. We do not share your production content with analytics providers.</p>
+
+    <h2>4. Data Retention</h2>
+
+    <p>We retain your data for as long as your account is active and for a reasonable period thereafter to allow for account recovery or dispute resolution.</p>
+    <ul>
+      <li><strong>Account data</strong> — retained until you delete your account</li>
+      <li><strong>Production data (notes, sessions, cast, scripts)</strong> — retained as long as the production exists in our system, or until deleted by a production owner or administrator</li>
+      <li><strong>Usage logs and analytics</strong> — retained in aggregate form for up to 24 months</li>
+      <li><strong>Backups</strong> — deleted data may persist in encrypted backups for up to 90 days</li>
+    </ul>
+
+    <p>When you delete your account, we delete or anonymize your personal information within 30 days, subject to our backup retention schedule and any legal obligations to retain certain records.</p>
+
+    <h2>5. Your Rights and Choices</h2>
+
+    <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+
+    <h3>Access</h3>
+    <p>You may request a copy of the personal data we hold about you. Most of your data is accessible directly within the Line Notes application.</p>
+
+    <h3>Correction</h3>
+    <p>You may update your account information at any time through your account settings. If you need to correct data you cannot access directly, contact us and we will assist.</p>
+
+    <h3>Deletion</h3>
+    <p>You may request deletion of your account and associated personal data at any time. To do so, contact us at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a>. Note that production data (notes, scripts) owned by a production may be subject to that production's owner's retention choices.</p>
+
+    <h3>Portability</h3>
+    <p>You may request an export of your personal data in a structured, machine-readable format. Contact us at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a> to initiate a data export.</p>
+
+    <h3>Objection and Restriction</h3>
+    <p>You may object to certain processing activities or request that we restrict how we process your data, subject to applicable law.</p>
+
+    <h3>Opting Out of Non-Essential Communications</h3>
+    <p>You may unsubscribe from marketing emails at any time using the unsubscribe link in any such email. We will still send you transactional messages necessary to operate your account.</p>
+
+    <h2>6. GDPR — European Users</h2>
+
+    <p>If you are located in the European Economic Area (EEA), the United Kingdom, or Switzerland, the following applies:</p>
+    <ul>
+      <li><strong>Legal basis for processing:</strong> We process your data on the basis of contract performance (to deliver the service you signed up for), legitimate interests (to improve and secure the service), and compliance with legal obligations. Where we rely on consent, you may withdraw it at any time.</li>
+      <li><strong>Data transfers:</strong> Your data is processed in the United States via Google Firebase infrastructure. We rely on Google's Standard Contractual Clauses for transfers of personal data outside the EEA.</li>
+      <li><strong>Data Protection Authority:</strong> You have the right to lodge a complaint with your local supervisory authority if you believe we have handled your data unlawfully.</li>
+    </ul>
+
+    <p>To exercise your rights under the GDPR, contact us at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a>. We will respond within 30 days.</p>
+
+    <h2>7. CCPA — California Residents</h2>
+
+    <p>If you are a California resident, the California Consumer Privacy Act (CCPA) gives you specific rights:</p>
+    <ul>
+      <li><strong>Right to know:</strong> You may request disclosure of the categories and specific pieces of personal information we have collected about you in the past 12 months.</li>
+      <li><strong>Right to delete:</strong> You may request deletion of personal information we have collected from you, subject to certain exceptions.</li>
+      <li><strong>Right to opt out of sale:</strong> We do not sell personal information. You do not need to opt out.</li>
+      <li><strong>Right to non-discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights.</li>
+    </ul>
+
+    <p>To submit a CCPA request, email <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a> with "CCPA Request" in the subject line.</p>
+
+    <h2>8. Data Security</h2>
+
+    <p>We take reasonable technical and organizational measures to protect your data from unauthorized access, loss, or disclosure. These measures include:</p>
+    <ul>
+      <li>Encryption in transit (HTTPS/TLS) for all data between your browser and our servers</li>
+      <li>Encryption at rest for data stored in Firebase Storage and Firestore</li>
+      <li>Role-based access controls enforced both in client code and in Firestore security rules</li>
+      <li>Firebase Authentication for secure credential management</li>
+    </ul>
+
+    <p>No system is perfectly secure. If you believe your account has been compromised, contact us immediately at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a>.</p>
+
+    <h2>9. Children's Privacy</h2>
+
+    <p>Line Notes is not directed to children under the age of 13. We do not knowingly collect personal information from children under 13. If we learn that we have collected such information, we will delete it promptly. If you believe a child under 13 has provided us with personal information, contact us at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a>.</p>
+
+    <h2>10. Changes to This Policy</h2>
+
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will notify you by email or by posting a notice in the Line Notes application. The "Last updated" date at the top of this page reflects when the policy was last revised. Your continued use of Line Notes after changes take effect constitutes acceptance of the revised policy.</p>
+
+    <hr class="divider">
+
+    <div class="contact-box">
+      <p><strong>Questions or requests?</strong></p>
+      <p>Contact our privacy team at <a href="mailto:privacy@linenotesapp.com">privacy@linenotesapp.com</a>.</p>
+      <p style="margin-top:12px; font-size:13px; color: var(--text-muted);">Line Notes Inc. · linenotesapp.com</p>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

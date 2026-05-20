@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Line Notes</title>
+  <meta name="description" content="Line Notes terms of service — the rules governing your use of the platform.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:            #E8221A;
+      --red-dim:        #B81A13;
+      --bg-deep:        #0D0D0D;
+      --bg-base:        #141414;
+      --bg-card:        #1C1C1C;
+      --bg-border:      #2E2E2E;
+      --text-primary:   #EDEBE6;
+      --text-secondary: #A8A6A1;
+      --text-muted:     #5E5C58;
+    }
+
+    html, body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ::selection { background: var(--red); color: #fff; }
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+    /* NAV */
+    .site-nav {
+      position: sticky; top: 0; z-index: 60;
+      display: flex; align-items: center; gap: 24px;
+      height: 56px; padding: 0 32px;
+      background: rgba(13,13,13,0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--bg-border);
+    }
+    .nav-wordmark {
+      font-size: 17px; font-weight: 700; letter-spacing: 0;
+      color: var(--text-primary);
+      padding-right: 24px;
+      border-right: 1px solid var(--bg-border);
+      height: 56px; display: flex; align-items: center;
+      text-decoration: none;
+    }
+    .nav-wordmark:hover { text-decoration: none; }
+    .nav-back {
+      font-size: 13px; color: var(--text-secondary);
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
+    .nav-back svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* LAYOUT */
+    .page-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
+    }
+
+    /* HEADER */
+    .page-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--bg-border);
+    }
+    .page-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .page-header h1 {
+      font-size: 32px; font-weight: 700; line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .page-header .last-updated {
+      font-size: 13px; color: var(--text-muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* CONTENT */
+    .legal-body h2 {
+      font-size: 18px; font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 48px; margin-bottom: 14px;
+    }
+    .legal-body h3 {
+      font-size: 14px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      margin-top: 28px; margin-bottom: 10px;
+      font-family: 'DM Mono', monospace;
+    }
+    .legal-body p {
+      font-size: 15px; color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .legal-body ul, .legal-body ol {
+      font-size: 15px; color: var(--text-secondary);
+      padding-left: 24px;
+      margin-bottom: 16px;
+    }
+    .legal-body li { margin-bottom: 6px; }
+    .legal-body strong { color: var(--text-primary); font-weight: 600; }
+
+    .legal-body .caps {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.01em;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--bg-border);
+      margin: 48px 0;
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-border);
+      padding: 24px 28px;
+      margin-top: 48px;
+    }
+    .contact-box p {
+      margin-bottom: 8px;
+    }
+    .contact-box p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 600px) {
+      .page-wrap { padding: 40px 20px 72px; }
+      .page-header h1 { font-size: 26px; }
+      .site-nav { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a class="nav-wordmark" href="/">LINE NOTES</a>
+  <a class="nav-back" href="/">
+    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8.5 2L3.5 7L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Back to home
+  </a>
+</nav>
+
+<main class="page-wrap">
+
+  <header class="page-header">
+    <div class="page-label">Legal</div>
+    <h1>Terms of Service</h1>
+    <div class="last-updated">Last updated: May 2026</div>
+  </header>
+
+  <div class="legal-body">
+
+    <p>These Terms of Service ("Terms") form a binding agreement between you and <strong>Line Notes Inc.</strong> ("Line Notes," "we," "our," or "us") governing your access to and use of the Line Notes platform, including the web application at <strong>linenotesapp.com</strong> and any associated services (collectively, the "Service").</p>
+
+    <p>Please read these Terms carefully before using the Service. By creating an account or otherwise accessing the Service, you agree to be bound by these Terms and our <a href="/privacy.html">Privacy Policy</a>. If you are accepting on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+
+    <h2>1. Acceptance of Terms</h2>
+
+    <p>Your use of the Service constitutes your acceptance of these Terms. If you do not agree to any part of these Terms, you must not use the Service. We may update these Terms from time to time; continued use of the Service after an update constitutes acceptance of the revised Terms. We will provide reasonable notice of material changes via email or an in-app notification.</p>
+
+    <h2>2. Account Registration</h2>
+
+    <p>To access the Service, you must create an account. You agree to:</p>
+    <ul>
+      <li>Provide accurate, current, and complete information during registration</li>
+      <li>Maintain and promptly update your account information</li>
+      <li>Keep your password confidential and not share it with others</li>
+      <li>Notify us immediately at <a href="mailto:legal@linenotesapp.com">legal@linenotesapp.com</a> if you suspect unauthorized access to your account</li>
+      <li>Accept responsibility for all activity that occurs under your account</li>
+    </ul>
+
+    <p>You must be at least 13 years old to create an account. If you are under 18, you represent that you have your parent or guardian's permission to use the Service.</p>
+
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms, provide false registration information, or engage in behavior we determine is harmful to the Service or other users.</p>
+
+    <h2>3. Permitted Use</h2>
+
+    <p>Subject to these Terms and payment of applicable fees, we grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Service for your internal stage management and theatrical production purposes.</p>
+
+    <p>Permitted uses include:</p>
+    <ul>
+      <li>Creating and managing theatrical productions within the platform</li>
+      <li>Uploading and annotating PDF scripts for your productions</li>
+      <li>Logging line notes and run session data during live rehearsals and performances</li>
+      <li>Managing cast lists and production team members</li>
+      <li>Sharing production access with authorized collaborators via the production join system</li>
+    </ul>
+
+    <h2>4. Prohibited Use</h2>
+
+    <p>You agree not to use the Service in any of the following ways:</p>
+
+    <h3>Abuse and Interference</h3>
+    <ul>
+      <li>Use automated scripts, bots, crawlers, or other automated means to access, scrape, or collect data from the Service</li>
+      <li>Submit an excessive number of requests that burden or degrade our infrastructure</li>
+      <li>Attempt to gain unauthorized access to any part of the Service, other user accounts, or our backend systems</li>
+      <li>Interfere with or disrupt the integrity or performance of the Service or the data contained within it</li>
+      <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the Service</li>
+    </ul>
+
+    <h3>Unlawful and Harmful Activity</h3>
+    <ul>
+      <li>Use the Service for any purpose that violates applicable local, state, national, or international law or regulation</li>
+      <li>Upload, transmit, or store content that is unlawful, infringing, defamatory, obscene, or otherwise objectionable</li>
+      <li>Upload scripts or materials to which you do not hold a license or permission from the copyright holder</li>
+      <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
+      <li>Use the Service to harass, threaten, or harm other users</li>
+    </ul>
+
+    <h3>Commercial Misuse</h3>
+    <ul>
+      <li>Resell, sublicense, or otherwise commercialize access to the Service without our written consent</li>
+      <li>Use the Service to build a competing product or service</li>
+      <li>Remove or obscure any proprietary notices or labels on the Service</li>
+    </ul>
+
+    <p>Violation of these prohibitions may result in immediate termination of your account and may expose you to civil or criminal liability.</p>
+
+    <h2>5. Subscription and Billing</h2>
+
+    <h3>Pricing Model</h3>
+    <p>Line Notes charges on a <strong>per-production basis</strong>. Each active production you create or own is subject to the applicable production fee as described on our pricing page. Pricing details, including any free trial terms, are displayed at linenotesapp.com and may be updated from time to time.</p>
+
+    <h3>Free Trial</h3>
+    <p>We may offer a free trial period for new accounts. At the end of the trial, your account will transition to a paid plan or your access to paid features will be suspended until a subscription is activated. No credit card is required to begin a trial unless otherwise stated.</p>
+
+    <h3>Payment</h3>
+    <p>You agree to pay all fees associated with your subscription. Fees are billed in advance on the billing cycle you select (monthly or annual, where available). You authorize us to charge your payment method on a recurring basis for the fees applicable to your plan.</p>
+
+    <h3>Cancellation</h3>
+    <p>You may cancel a production subscription at any time through your account settings or by contacting <a href="mailto:legal@linenotesapp.com">legal@linenotesapp.com</a>. Cancellation takes effect at the end of the current billing period. Your production data will remain accessible until the period ends.</p>
+
+    <h3>Refunds</h3>
+    <p>Fees paid are generally non-refundable except where required by law. If you believe you were charged in error, contact us within 30 days of the charge at <a href="mailto:legal@linenotesapp.com">legal@linenotesapp.com</a> and we will review the dispute in good faith.</p>
+
+    <h3>Price Changes</h3>
+    <p>We reserve the right to modify our pricing at any time. We will provide at least 30 days' notice of any price increase before it applies to your existing subscriptions.</p>
+
+    <h2>6. User Content</h2>
+
+    <h3>Ownership</h3>
+    <p>You retain full ownership of all content you create, upload, or store within the Service, including your line notes, cast lists, run session records, and any PDF scripts you upload ("User Content"). These Terms do not transfer any ownership rights in your User Content to us.</p>
+
+    <h3>License to Line Notes</h3>
+    <p>By uploading or submitting User Content to the Service, you grant Line Notes Inc. a limited, non-exclusive, worldwide license to store, reproduce, and transmit your User Content solely to the extent necessary to operate and provide the Service to you and your authorized collaborators. We do not use your User Content for any other purpose.</p>
+
+    <h3>Your Responsibility</h3>
+    <p>You are solely responsible for your User Content. You represent and warrant that:</p>
+    <ul>
+      <li>You own your User Content or have the necessary rights, licenses, and permissions to use and upload it</li>
+      <li>Your User Content does not infringe any third-party intellectual property rights, privacy rights, or other legal rights</li>
+      <li>You have obtained any required licenses for PDF scripts or other copyrighted materials you upload</li>
+    </ul>
+
+    <h3>Removal</h3>
+    <p>We reserve the right to remove User Content that we determine, in our sole discretion, violates these Terms or applicable law. We will make reasonable efforts to notify you before removal unless doing so would cause harm or violate a legal obligation.</p>
+
+    <h2>7. Intellectual Property</h2>
+
+    <p>Line Notes Inc. owns all right, title, and interest in and to the Service, including the software, application design, user interface, logos, trademarks, documentation, and all other intellectual property embodied in the platform. Nothing in these Terms grants you any right to use our trademarks, trade names, logos, or other brand features without our prior written consent.</p>
+
+    <p>All rights not expressly granted to you in these Terms are reserved by Line Notes Inc.</p>
+
+    <p>If you provide feedback, suggestions, or ideas about the Service ("Feedback"), you grant us a perpetual, irrevocable, royalty-free license to use that Feedback without restriction or compensation to you.</p>
+
+    <h2>8. Disclaimers</h2>
+
+    <p class="caps">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, LINE NOTES INC. DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+
+    <p>We do not warrant that:</p>
+    <ul>
+      <li>The Service will be uninterrupted, error-free, or free of viruses or other harmful components</li>
+      <li>Any data you store in the Service will be free from loss, corruption, or unauthorized access</li>
+      <li>The Service will meet your specific requirements or expectations</li>
+    </ul>
+
+    <p>We strongly recommend that you maintain independent backups of any critical production data, including scripts and session records that are not otherwise preserved elsewhere.</p>
+
+    <h2>9. Limitation of Liability</h2>
+
+    <p class="caps">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LINE NOTES INC. AND ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND LICENSORS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, SERVICE INTERRUPTION, OR COMPUTER DAMAGE, ARISING FROM OR RELATED TO YOUR USE OF OR INABILITY TO USE THE SERVICE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+    <p class="caps">IN NO EVENT SHALL OUR TOTAL CUMULATIVE LIABILITY TO YOU FOR ALL CLAIMS ARISING FROM OR RELATED TO THESE TERMS OR THE SERVICE EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID TO LINE NOTES IN THE TWELVE MONTHS PRECEDING THE CLAIM, OR (B) ONE HUNDRED DOLLARS (USD $100).</p>
+
+    <p>Some jurisdictions do not allow the exclusion of certain warranties or the limitation of liability for certain types of damages. In such jurisdictions, our liability will be limited to the fullest extent permitted by law.</p>
+
+    <h2>10. Indemnification</h2>
+
+    <p>You agree to indemnify, defend, and hold harmless Line Notes Inc. and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable attorneys' fees) arising out of or in any way connected with:</p>
+    <ul>
+      <li>Your access to or use of the Service</li>
+      <li>Your User Content</li>
+      <li>Your violation of these Terms</li>
+      <li>Your violation of any third-party right, including any intellectual property or privacy right</li>
+    </ul>
+
+    <h2>11. Termination</h2>
+
+    <p>Either party may terminate the agreement formed by these Terms at any time. You may stop using the Service and request account deletion at any time. We may suspend or terminate your access if you violate these Terms, fail to pay applicable fees, or for any other reason at our discretion, with or without notice.</p>
+
+    <p>Upon termination, your right to access the Service ceases immediately. Sections that by their nature should survive termination — including ownership provisions, warranty disclaimers, limitations of liability, and dispute resolution — will survive.</p>
+
+    <p>Following account deletion, we will delete or anonymize your personal data in accordance with our <a href="/privacy.html">Privacy Policy</a>.</p>
+
+    <h2>12. Governing Law and Dispute Resolution</h2>
+
+    <p>These Terms are governed by and construed in accordance with the laws of the <strong>State of California</strong>, United States, without regard to its conflict of law provisions.</p>
+
+    <p>Any dispute arising out of or relating to these Terms or the Service that cannot be resolved informally shall be submitted to binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules, with proceedings conducted in San Francisco, California. Each party will bear its own costs unless the arbitrator determines otherwise.</p>
+
+    <p>Notwithstanding the above, either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent irreparable harm. You agree that any claim must be brought in your individual capacity and not as a plaintiff or class member in any class or representative proceeding.</p>
+
+    <h2>13. General Provisions</h2>
+
+    <h3>Entire Agreement</h3>
+    <p>These Terms, together with our Privacy Policy and any additional terms for specific features, constitute the entire agreement between you and Line Notes Inc. regarding the Service and supersede all prior agreements.</p>
+
+    <h3>Severability</h3>
+    <p>If any provision of these Terms is found to be unenforceable, that provision will be modified to the minimum extent necessary to make it enforceable, and the remaining provisions will remain in full force and effect.</p>
+
+    <h3>Waiver</h3>
+    <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of that right or provision.</p>
+
+    <h3>Assignment</h3>
+    <p>You may not assign or transfer these Terms or any rights under them without our prior written consent. We may freely assign our rights and obligations under these Terms, including in connection with a merger, acquisition, or sale of assets.</p>
+
+    <h3>No Third-Party Beneficiaries</h3>
+    <p>These Terms do not confer any rights on any third party.</p>
+
+    <hr class="divider">
+
+    <div class="contact-box">
+      <p><strong>Legal questions or notices?</strong></p>
+      <p>Contact us at <a href="mailto:legal@linenotesapp.com">legal@linenotesapp.com</a>.</p>
+      <p style="margin-top:12px; font-size:13px; color: var(--text-muted);">Line Notes Inc. · linenotesapp.com</p>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

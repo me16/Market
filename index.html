@@ -8,18 +8,124 @@
 <meta property="og:title" content="Line Notes — Stage management software for live runs">
 <meta property="og:description" content="Click during the run. Send actor-specific notes by intermission.">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://linenotesapp.com/">
+<meta property="og:url" content="https://linenotesapp.com/">
+<meta property="og:image" content="https://linenotesapp.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="Line Notes">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Line Notes — Stage management software for live runs">
+<meta name="twitter:description" content="Click during the run. Send actor-specific notes by intermission.">
+<meta name="twitter:image" content="https://linenotesapp.com/og-image.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/src/styles.css" />
+<style>
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+.cookie-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  background: #1C1C1C;
+  border-top: 1px solid #2E2E2E;
+  padding: 1rem 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cookie-text {
+  color: #A8A6A1;
+  font-size: 0.875rem;
+  margin: 0;
+}
+.cookie-link {
+  color: #E8221A;
+  text-decoration: underline;
+}
+.cookie-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.cookie-btn {
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.cookie-btn-primary {
+  background: #E8221A;
+  color: white;
+}
+.cookie-btn-primary:hover {
+  background: #B81A13;
+}
+.cookie-btn-secondary {
+  background: transparent;
+  color: #A8A6A1;
+  border: 1px solid #2E2E2E;
+}
+.cookie-btn-secondary:hover {
+  background: #252525;
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Line Notes",
+  "description": "Stage management software for live runs. Take line notes during the show, not after it.",
+  "url": "https://linenotesapp.com",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Workshop",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Production",
+      "price": "24",
+      "priceCurrency": "USD",
+      "billingIncrement": "month"
+    }
+  ]
+}
+</script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- =========================================================
      TOP NAV
 ========================================================= -->
-<nav class="site-nav">
+<nav class="site-nav" aria-label="Main navigation">
   <div class="wordmark">LINE NOTES</div>
   <div class="nav-links">
     <a href="#features">Features</a>
@@ -28,7 +134,7 @@
     <a href="#pricing">Pricing</a>
     <a href="#faq">FAQ</a>
   </div>
-  <div class="nav-right">
+  <div class="nav-right" aria-label="Primary actions">
     <a class="btn btn--ghost btn--sm" href="#signin">Sign in</a>
     <a class="btn btn--primary btn--sm" href="#trial">Start free trial</a>
   </div>
@@ -37,7 +143,7 @@
 <!-- =========================================================
      HERO
 ========================================================= -->
-<header class="hero">
+<header class="hero" role="banner">
   <div class="wrap hero-inner">
     <h1>
       Take your line notes
@@ -63,7 +169,7 @@
 <!-- =========================================================
      FEATURES
 ========================================================= -->
-<section class="section" id="features">
+<section class="section" id="main-content" aria-label="Features">
   <div class="wrap">
     <div class="sec-head">
       <h2>Four tools become one tab.</h2>
@@ -255,7 +361,7 @@
           <li>Dedicated onboarding</li>
           <li>SLA, audit log, retention controls</li>
         </ul>
-        <a class="btn btn--secondary" href="#contact" style="justify-content:center">Contact sales</a>
+        <a class="btn btn--secondary" href="/contact" style="justify-content:center">Contact sales</a>
       </div>
     </div>
   </div>
@@ -330,23 +436,23 @@
         <a href="#features">Features</a>
         <a href="#demo">Live demo</a>
         <a href="#pricing">Pricing</a>
-        <a href="#">Changelog</a>
-        <a href="#">Roadmap</a>
+        <a href="#" class="coming-soon">Changelog</a>
+        <a href="#" class="coming-soon">Roadmap</a>
       </div>
       <div>
         <h5>Company</h5>
-        <a href="#">About</a>
-        <a href="#">Press kit</a>
-        <a href="#">Hire us</a>
-        <a href="#">Contact</a>
+        <a href="#" class="coming-soon">About</a>
+        <a href="#" class="coming-soon">Press kit</a>
+        <a href="#" class="coming-soon">Hire us</a>
+        <a href="/contact">Contact</a>
       </div>
       <div>
         <h5>Resources</h5>
-        <a href="#">Docs</a>
-        <a href="#">API</a>
-        <a href="#">Status</a>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <a href="#" class="coming-soon">Docs</a>
+        <a href="#" class="coming-soon">API</a>
+        <a href="#" class="coming-soon">Status</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
       </div>
     </div>
     <div class="foot-bottom">
@@ -360,6 +466,33 @@
      SCRIPTS — React + Babel
 ========================================================= -->
 <script type="module" src="/src/main.jsx"></script>
+
+<!-- =========================================================
+     COOKIE CONSENT BANNER
+========================================================= -->
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
+  <p class="cookie-text">We use cookies to analyze site traffic and improve your experience. <a href="/privacy" class="cookie-link">Privacy Policy</a></p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="cookie-btn cookie-btn-primary">Accept</button>
+    <button id="cookie-decline" class="cookie-btn cookie-btn-secondary">Decline</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie-consent');
+  if (!consent) banner.style.display = 'flex';
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'accepted');
+    banner.style.display = 'none';
+  });
+  document.getElementById('cookie-decline').addEventListener('click', function() {
+    localStorage.setItem('cookie-consent', 'declined');
+    banner.style.display = 'none';
+  });
+})();
+</script>
 
 </body>
 </html>
