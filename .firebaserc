@@ -1,0 +1,10 @@
+{
+  "projects": { "default": "line-notes" },
+  "targets": {
+    "line-notes": {
+      "hosting": {
+        "marketing": ["line-notes-marketing"]
+      }
+    }
+  }
+}
