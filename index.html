@@ -104,16 +104,17 @@
   "offers": [
     {
       "@type": "Offer",
-      "name": "Workshop",
-      "price": "0",
-      "priceCurrency": "USD"
+      "name": "Monthly",
+      "price": "9.00",
+      "priceCurrency": "USD",
+      "billingIncrement": "month"
     },
     {
       "@type": "Offer",
-      "name": "Production",
-      "price": "9",
+      "name": "Annual",
+      "price": "90.00",
       "priceCurrency": "USD",
-      "billingIncrement": "month"
+      "billingIncrement": "year"
     }
   ]
 }
@@ -320,24 +321,26 @@
   <div class="wrap" style="padding:0">
     <div class="pricing">
       <div class="tier">
-        <div class="tier-name">Workshop</div>
-        <div class="price">$0<span class="unit">/ month</span></div>
-        <div class="price-sub">Single workshop or reading. Up to 14 days.</div>
+        <div class="tier-name">Monthly</div>
+        <div class="price">$9.00<span class="unit">/ month</span></div>
+        <div class="price-sub">Month to month. Unlimited productions, whole company free.</div>
+        <div class="trial-badge">Free for your first week</div>
         <ul>
-          <li>1 production</li>
-          <li>Unlimited cast &amp; crew</li>
-          <li>Run sessions &amp; line notes</li>
-          <li>PDF script &amp; zone editor</li>
-          <li class="disabled">Email distribution</li>
-          <li class="disabled">Archive &amp; re-run reports</li>
+          <li>Unlimited productions per company</li>
+          <li>Unlimited cast, crew, ASMs</li>
+          <li>Realtime multi-device run sessions</li>
+          <li>Email actor-specific notes</li>
+          <li>Run reports &amp; PDF archive</li>
+          <li>Bookmarks, scratchpad, cue pills</li>
         </ul>
-        <a class="btn btn--secondary" href="https://app.linenotes.io?signup=workshop" style="justify-content:center">Start free</a>
+        <a class="btn btn--secondary" href="https://app.linenotes.io?signup=production" style="justify-content:center">Start 7-day free trial</a>
       </div>
 
       <div class="tier tier--featured">
-        <div class="tier-name">Production</div>
-        <div class="price">$9<span class="unit">/ month</span></div>
-        <div class="price-sub">or $90/year (save $18). Unlimited productions, whole company free.</div>
+        <div class="tier-name">Annual</div>
+        <div class="price">$90.00<span class="unit">/ year</span></div>
+        <div class="price-sub">Save $18 a year. Unlimited productions, whole company free.</div>
+        <div class="trial-badge">Free for your first week</div>
         <ul>
           <li>Unlimited productions per company</li>
           <li>Unlimited cast, crew, ASMs</li>
@@ -350,7 +353,7 @@
       </div>
 
       <div class="tier">
-        <div class="tier-name">Repertory</div>
+        <div class="tier-name">Enterprise</div>
         <div class="price">Talk<span class="unit">/ to us</span></div>
         <div class="price-sub">For companies running 4+ shows in rep.</div>
         <ul>
