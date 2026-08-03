@@ -6,7 +6,7 @@
 <title>Line Notes — Stage management software for live runs</title>
 <meta name="description" content="Stage management software for live runs. Take line notes during the show, not after it.">
 <meta property="og:title" content="Line Notes — Stage management software for live runs">
-<meta property="og:description" content="Click during the run. Send actor-specific notes by intermission.">
+<meta property="og:description" content="Click the line as it happens. Each actor gets their own notes by intermission.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://linenotes.io/">
 <meta property="og:url" content="https://linenotes.io/">
@@ -16,82 +16,15 @@
 <meta property="og:site_name" content="Line Notes">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Line Notes — Stage management software for live runs">
-<meta name="twitter:description" content="Click during the run. Send actor-specific notes by intermission.">
+<meta name="twitter:description" content="Click the line as it happens. Each actor gets their own notes by intermission.">
 <meta name="twitter:image" content="https://linenotes.io/og-image.png">
+<meta name="theme-color" content="#0D0D0D">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/src/styles.css" />
-<style>
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  z-index: 9999;
-  padding: 0.5rem 1rem;
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
-  border-radius: 0 0 4px 0;
-}
-.skip-link:focus {
-  left: 0;
-}
-.cookie-banner {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 9000;
-  background: #1C1C1C;
-  border-top: 1px solid #2E2E2E;
-  padding: 1rem 2rem;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.cookie-text {
-  color: #A8A6A1;
-  font-size: 0.875rem;
-  margin: 0;
-}
-.cookie-link {
-  color: #E8221A;
-  text-decoration: underline;
-}
-.cookie-actions {
-  display: flex;
-  gap: 0.5rem;
-  flex-shrink: 0;
-}
-.cookie-btn {
-  padding: 0.4rem 1rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  cursor: pointer;
-  font-family: inherit;
-}
-.cookie-btn-primary {
-  background: #E8221A;
-  color: white;
-}
-.cookie-btn-primary:hover {
-  background: #B81A13;
-}
-.cookie-btn-secondary {
-  background: transparent;
-  color: #A8A6A1;
-  border: 1px solid #2E2E2E;
-}
-.cookie-btn-secondary:hover {
-  background: #252525;
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,398 +35,457 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "Monthly",
-      "price": "9.00",
-      "priceCurrency": "USD",
-      "billingIncrement": "month"
-    },
-    {
-      "@type": "Offer",
-      "name": "Annual",
-      "price": "90.00",
-      "priceCurrency": "USD",
-      "billingIncrement": "year"
-    }
+    { "@type": "Offer", "name": "Monthly", "price": "9.00", "priceCurrency": "USD", "billingIncrement": "month" },
+    { "@type": "Offer", "name": "Annual",  "price": "90.00", "priceCurrency": "USD", "billingIncrement": "year" }
   ]
 }
 </script>
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
+<!--
+  THESIS: A landing page built as a stage manager's calling script — the argument in the
+  body track, annotations in a real margin rail, because the margin is where line notes
+  are actually written. Refuses the SaaS feature-card grid and the numbered 01/02/03 rail.
+  OWN-WORLD: Booth dark (#0D0D0D/#141414/#1C1C1C) with one lit field — paper #F2EFE5 —
+  and red #E8221A used only as the SM's pen: marks, rules, ticks. Archivo (printer's
+  gothic, width axis) + Courier Prime (the face scripts are typed in). Zero radius, 1px rules.
+  STORY: A stage manager sees a marked script page, follows the red leader rule out to the
+  note it became and the actor it routed to, plays with the live demo, and starts a trial.
+  FIRST VIEWPORT: Full-width headline with "during" boxed in red pen; below it a two-track
+  row — lede plus primary action left, a lit script page right whose marked line draws a red
+  leader out to an overhanging note slip. Primary action sits under the lede, above the fold.
+  FORM: The margin — candidate 3 of the grounded list; surface seed key 92914fb7.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+-->
+<a href="#doc-start" class="skip">Skip to content</a>
 
-<!-- =========================================================
-     TOP NAV
-========================================================= -->
-<nav class="site-nav" aria-label="Main navigation">
-  <div class="wordmark">LINE NOTES</div>
-  <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#demo">Live demo</a>
-    <a href="#workflow">Workflow</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-  </div>
-  <div class="nav-right" aria-label="Primary actions">
-    <a class="btn btn--ghost btn--sm" href="https://app.linenotes.io">Sign in</a>
-    <a class="btn btn--primary btn--sm" href="https://app.linenotes.io?signup=production">Start free trial</a>
-  </div>
-</nav>
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-<header class="hero" role="banner">
-  <div class="wrap hero-inner">
-    <h1>
-      Take your line notes
-      <span class="strike">during</span>
-      the show, not after it.
-    </h1>
-
-    <p class="lede">
-      Line Notes is stage management software for live runs. Drop in your
-      script, tag every line zone, and click during the run to log drops,
-      adds, transpositions, and director notes. Each note is anchored to a
-      line, a cast member, and a session, so the email you send at intermission
-      contains exactly the four notes that actor needs and nothing else.
-    </p>
-
-    <div class="cta-row">
-      <a class="btn btn--primary" href="https://app.linenotes.io?signup=production">Start 7-day free trial</a>
-      <a class="btn btn--secondary" href="#demo">Try the live demo</a>
-    </div>
+<!-- ============================================================
+     HEAD SLUG
+============================================================ -->
+<header class="slug">
+  <a class="slug-mark" href="/">Line Notes</a>
+  <nav class="slug-nav" aria-label="Sections">
+    <a href="#marks">The note</a>
+    <a href="#demo">Demo</a>
+    <a href="#run">The run</a>
+    <a href="#price">Price</a>
+    <a href="#questions">Questions</a>
+  </nav>
+  <div class="slug-act">
+    <a class="btn btn--quiet" href="https://app.linenotes.io">Sign in</a>
+    <a class="btn btn--pen" href="https://app.linenotes.io?signup=production">Start free trial</a>
   </div>
 </header>
 
-<!-- =========================================================
-     FEATURES
-========================================================= -->
-<section class="section" id="main-content" aria-label="Features">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Four tools become one tab.</h2>
-      <p>
-        Line Notes replaces the spiral pad, the highlighter, the post-show
-        email, and the spreadsheet you use to distribute notes the next morning.
-      </p>
-    </div>
-  </div>
+<!-- ============================================================
+     FIRST VIEWPORT
+============================================================ -->
+<section class="hero" id="doc-start">
+  <div class="hero-inner">
 
-  <div class="features">
-    <div class="feat">
-      <div class="num">01</div>
-      <h3>Drop the script.</h3>
-      <p>
-        Upload any text-based PDF. Line Notes auto-extracts speakers, stage
-        directions, music lines, and clickable line zones page by page.
-        Hand-correct anything in the Script Editor.
-      </p>
-    </div>
+    <h1 class="hero-head">
+      <span class="rise" style="--d:0ms">Take your line notes</span>
+      <span class="rise" style="--d:70ms"><span class="mark">during</span> the show,</span>
+      <span class="rise" style="--d:140ms">not after it.</span>
+    </h1>
 
-    <div class="feat">
-      <div class="num">02</div>
-      <h3>Click during the run.</h3>
-      <p>
-        Hit Start. Tap any line. Pick a cast member, pick a type, type optional
-        context. Two seconds, eyes back on stage. F1–F4 set the type without
-        leaving the keyboard.
-      </p>
-    </div>
-
-    <div class="feat">
-      <div class="num">03</div>
-      <h3>Send to the right actor.</h3>
-      <p>
-        Every note belongs to a cast member. After the run, send each actor
-        only their notes, by email or printable PDF. No manual sorting at midnight.
-      </p>
-    </div>
-
-    <div class="feat">
-      <div class="num">04</div>
-      <h3>Cues in the margin.</h3>
-      <p>
-        LX, SQ, fly, and follow-spot cues live as inline pills on the script
-        itself. Standby states surface to the right rail. Your call sheet and
-        your line notes stop disagreeing.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     LIVE DEMO
-========================================================= -->
-<section class="section" id="demo">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>This isn't a screenshot.</h2>
-      <p>
-        The frame below is the actual Run Show interface, running on this
-        page. Click any line in the script to log a note. The cast list,
-        notes panel, session timer, and statistics all stay in sync as you work.
-      </p>
-    </div>
-
-    <div class="demo-hint">
-      <span><strong style="color:var(--text-primary)">Try it:</strong> &nbsp;click any italic line in the script.</span>
-      <span class="sep">|</span>
-      <span>Press <kbd>1</kbd>–<kbd>4</kbd> in the popover to pick a type.</span>
-      <span class="sep">|</span>
-      <span>Click a cast member to filter the notes list.</span>
-    </div>
-
-    <div class="demo-frame-wrap">
-      <div class="demo-frame">
-        <!-- App topbar -->
-        <div class="app-topbar">
-          <span class="app-topbar-logo">LINE NOTES</span>
-          <span class="app-topbar-title">The Kettle · Spring '26 Tour</span>
-          <span class="role-badge role-badge--owner">PSM</span>
-          <div class="app-topbar-tabs">
-            <button class="app-tab app-tab--active">Run Show</button>
-            <button class="app-tab">Script Editor</button>
-            <button class="app-tab">Cast &amp; Crew</button>
-            <button class="app-tab">Settings</button>
-          </div>
-          <button class="topbar-btn">Sign Out</button>
+    <div class="hero-grid">
+      <div class="hero-say">
+        <p class="lede rise" style="--d:240ms">
+          Click the line as it happens. Every note is anchored to an actor, a page,
+          and a session — so at intermission each actor gets their own notes, and
+          nothing else.
+        </p>
+        <div class="acts rise" style="--d:310ms">
+          <a class="btn btn--pen btn--lg" href="https://app.linenotes.io?signup=production">Start 7-day free trial</a>
+          <a class="btn btn--plain btn--lg" href="#demo">Try the live demo</a>
         </div>
-
-        <!-- React-mounted Run Show -->
-        <div id="demo-mount" style="flex:1; display:flex; min-height:0;"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     WORKFLOW
-========================================================= -->
-<section class="section" id="workflow">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>From "places" to "thanks, everyone."</h2>
-      <p>How an evening with Line Notes actually goes, hour by hour.</p>
-    </div>
-  </div>
-
-  <div class="flow">
-    <div class="flow-step">
-      <div class="step-n">17:00</div>
-      <h4>Open the script</h4>
-      <p>Pull up tonight's PDF. Zones, cues, and cast colors load from last night exactly where you left them.</p>
-    </div>
-    <div class="flow-step">
-      <div class="step-n">19:30</div>
-      <h4>Start the run</h4>
-      <p>Hit Start. The timer goes green. The heartbeat dot confirms every keystroke is syncing to your ASMs in real time.</p>
-    </div>
-    <div class="flow-step">
-      <div class="step-n">22:14</div>
-      <h4>Tap, type, done</h4>
-      <p>Drop on line 412? Click the line, F1 for DROP, optional context, Enter. Two seconds. Eyes back on stage.</p>
-    </div>
-    <div class="flow-step">
-      <div class="step-n">23:08</div>
-      <h4>Send the notes</h4>
-      <p>End Run generates the report. One click: each actor gets only their own notes, with the line text and your context attached.</p>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     PRICING
-========================================================= -->
-<section class="section" id="pricing">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>One flat price, not per seat.</h2>
-      <p>
-        Invite your whole SM team, directors, ASMs, and cast at no extra cost.
-        One subscription covers unlimited productions. Start with a 7-day free
-        trial and cancel anytime.
-      </p>
-    </div>
-  </div>
-
-  <div class="wrap" style="padding:0">
-    <div class="pricing">
-      <div class="tier">
-        <div class="tier-name">Monthly</div>
-        <div class="price">$9.00<span class="unit">/ month</span></div>
-        <div class="price-sub">Month to month. Unlimited productions, whole company free.</div>
-        <div class="trial-badge">Free for your first week</div>
-        <ul>
-          <li>Unlimited productions per company</li>
-          <li>Unlimited cast, crew, ASMs</li>
-          <li>Realtime multi-device run sessions</li>
-          <li>Email actor-specific notes</li>
-          <li>Run reports &amp; PDF archive</li>
-          <li>Bookmarks, scratchpad, cue pills</li>
-        </ul>
-        <a class="btn btn--secondary" href="https://app.linenotes.io?signup=production" style="justify-content:center">Start 7-day free trial</a>
-      </div>
-
-      <div class="tier tier--featured">
-        <div class="tier-name">Annual</div>
-        <div class="price">$90.00<span class="unit">/ year</span></div>
-        <div class="price-sub">Save $18 a year. Unlimited productions, whole company free.</div>
-        <div class="trial-badge">Free for your first week</div>
-        <ul>
-          <li>Unlimited productions per company</li>
-          <li>Unlimited cast, crew, ASMs</li>
-          <li>Realtime multi-device run sessions</li>
-          <li>Email actor-specific notes</li>
-          <li>Run reports &amp; PDF archive</li>
-          <li>Bookmarks, scratchpad, cue pills</li>
-        </ul>
-        <a class="btn btn--primary" href="https://app.linenotes.io?signup=production" style="justify-content:center">Start 7-day free trial</a>
-      </div>
-
-      <div class="tier">
-        <div class="tier-name">Enterprise</div>
-        <div class="price">Talk<span class="unit">/ to us</span></div>
-        <div class="price-sub">For companies running 4+ shows in rep.</div>
-        <ul>
-          <li>Everything in Production</li>
-          <li>SSO &amp; SAML</li>
-          <li>Company-wide cast archive</li>
-          <li>API access &amp; integrations</li>
-          <li>Dedicated onboarding</li>
-          <li>SLA, audit log, retention controls</li>
-        </ul>
-        <a class="btn btn--secondary" href="/contact" style="justify-content:center">Contact sales</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-<section class="section" id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>Asked at every load-in.</h2>
-    </div>
-  </div>
-
-  <div class="wrap" style="padding:0">
-    <div class="faq">
-      <div class="faq-item">
-        <h4>Will it work on the house Mac mini in the booth?</h4>
-        <p>Anything that runs a recent Chrome, Edge, Safari, or Firefox. The UI is tuned for dim houses and is fully keyboard-driven. No install.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What if the venue Wi-Fi drops mid-run?</h4>
-        <p>Line Notes keeps writing locally and syncs when the connection returns. The heartbeat dot turns red, you keep tapping, nothing is lost.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Can my ASMs and director see notes in real time?</h4>
-        <p>Yes. Invite anyone with their email; they join with read or write permissions. Every note appears on every device within 200ms.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What about scanned PDFs from a stage rental?</h4>
-        <p>You can draw line zones manually in the Script Editor and still get the full Run Show flow. OCR for scanned scripts is on the roadmap.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Why not just use a shared Google Doc?</h4>
-        <p>Notes in Line Notes are anchored to a line, an actor, a session, and a type. That structure is what lets us route Jonas's drops to Jonas, in two clicks, without you reading the doc back through.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Can I export my data?</h4>
-        <p>Every run produces a PDF report and a JSON export. Productions, zones, and notes are downloadable any time, no email required.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========================================================
-     CTA STRIP
-========================================================= -->
-<section class="cta-strip">
-  <h2>Curtain in three hours.</h2>
-  <p>Your first production is free. Setup takes under twenty minutes.</p>
-  <div class="cta-row">
-    <a class="btn btn--primary" href="https://app.linenotes.io?signup=production">Start free trial</a>
-    <a class="btn btn--secondary" href="#demo">Back to the demo</a>
-  </div>
-</section>
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-wordmark">LINE NOTES</div>
-        <p class="foot-tag">
-          Stage management software for live runs.
+        <p class="acts-sub rise" style="--d:370ms">
+          $9 a month. Unlimited productions. The whole company invited free.
         </p>
       </div>
-      <div>
-        <h5>Product</h5>
-        <a href="#features">Features</a>
-        <a href="#demo">Live demo</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#" class="coming-soon">Changelog</a>
-        <a href="#" class="coming-soon">Roadmap</a>
+
+      <figure class="prompt rise" style="--d:200ms">
+        <div class="paper paper--hero">
+          <span class="paper-folio">14</span>
+          <p class="sd">JONAS enters from the hallway, carrying a screwdriver and a small box.</p>
+          <p class="sp" data-cast="jonas">JONAS</p>
+          <p class="ln">I said the calendar lies. You wrote Tuesday because you wanted it to be Tuesday.</p>
+          <div class="ln-row">
+            <p class="ln ln--marked">
+              But the post said Thursday. I read it twice.
+              <span class="lead" aria-hidden="true"></span>
+            </p>
+            <aside class="slip">
+              <div class="slip-head">
+                <span class="chip">Skip</span>
+                <span class="slip-t">p.4</span>
+              </div>
+              <p class="slip-who"><span class="swatch" data-cast="jonas"></span> Sam Park &middot; JONAS</p>
+              <p class="slip-txt">went straight past it</p>
+              <p class="slip-route">Goes to Sam in the run report</p>
+            </aside>
+          </div>
+          <p class="sp" data-cast="maria">MARIA</p>
+          <p class="ln">Then why is the kettle still on?</p>
+          <p class="sd">A long pause. JONAS sets the box on the table without looking at it.</p>
+        </div>
+        <figcaption class="synthetic">Demonstration content. &ldquo;The Kettle&rdquo; is a fictional production.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STRIKE STRIP — what it replaces
+============================================================ -->
+<section class="strip" aria-label="What Line Notes replaces">
+  <div class="strip-inner">
+    <p class="strip-lead">Four tools become one tab.</p>
+    <ul class="strike">
+      <li><s>the spiral pad</s><span>notes with no owner</span></li>
+      <li><s>the highlighter</s><span>marks that never leave the page</span></li>
+      <li><s>the post-show email</s><span>written from memory at midnight</span></li>
+      <li><s>the sorting spreadsheet</s><span>one tab per actor, by hand</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE MARKS
+============================================================ -->
+<section class="band" id="marks">
+  <div class="doc">
+    <div class="doc-body">
+      <h2>A note is not a sentence.<br>It is four facts and a tap.</h2>
+      <p class="say">
+        Pick the type in the sidebar, tap the line, pick the cast member. The note stores
+        what kind of note it is, who it belongs to, what page it was on, and which run it
+        came from &mdash; which is exactly what lets the end-of-run report split itself by
+        actor without anyone re-reading it.
+      </p>
+
+      <div class="typeset">
+        <p class="typeset-label">The seven note types</p>
+        <dl class="typelist">
+          <div><dt>Skip</dt><dd>An actor skipped a line.</dd></div>
+          <div><dt>Para</dt><dd>An actor paraphrased a line.</dd></div>
+          <div><dt>Called</dt><dd>An actor called for a line.</dd></div>
+          <div><dt>Add</dt><dd>An actor added a line, or words that are not in the script.</dd></div>
+          <div><dt>Gen</dt><dd>A general note that is none of the above.</dd></div>
+          <div><dt>Jumped</dt><dd>An actor jumped ahead to later in the script.</dd></div>
+          <div><dt>Missed</dt><dd>An actor missed a line, or words inside one.</dd></div>
+        </dl>
       </div>
-      <div>
-        <h5>Company</h5>
-        <a href="#" class="coming-soon">About</a>
-        <a href="#" class="coming-soon">Press kit</a>
-        <a href="#" class="coming-soon">Hire us</a>
-        <a href="/contact">Contact</a>
-      </div>
-      <div>
-        <h5>Resources</h5>
-        <a href="#" class="coming-soon">Docs</a>
-        <a href="#" class="coming-soon">API</a>
-        <a href="#" class="coming-soon">Status</a>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
+
+      <div class="anchor">
+        <div class="paper paper--ex">
+          <p class="pdf-cue">JONAS</p>
+          <p class="pdf-line zone--noted">But the post said Thursday. I read it twice.<span class="zone-flag" style="background:#5B9BD4">Skip</span></p>
+        </div>
+        <dl class="anchor-facts">
+          <div><dt>Type</dt><dd>Skip</dd></div>
+          <div><dt>Cast member</dt><dd>Sam Park &mdash; JONAS</dd></div>
+          <div><dt>Page</dt><dd>4 of 12</dd></div>
+          <div><dt>Session</dt><dd>The Kettle &mdash; Aug 2</dd></div>
+        </dl>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 Line Notes Inc.</span>
+
+    <aside class="rail">
+      <p class="rail-label">The note</p>
+      <p class="rail-note">
+        The type list is fixed. You set it once in the sidebar and it stays selected, so
+        logging a run of the same kind of note costs one tap each.
+      </p>
+      <p class="rail-note">
+        Cast members have to exist before you can log anything &mdash; a note has to belong
+        to somebody, so Line Notes will send you to Cast &amp; Crew first.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     LIVE DEMO
+============================================================ -->
+<section class="band band--demo" id="demo">
+  <div class="doc">
+    <div class="doc-body">
+      <h2>Try it before you sign up.</h2>
+      <p class="say">
+        The frame below is a working replica of the Run Show screen &mdash; the same controls,
+        the same seven note types, the same start and end-of-run flow. Tap a tinted line to
+        log a note against a cast member. It runs entirely in this page and saves nothing.
+      </p>
+    </div>
+    <aside class="rail">
+      <p class="rail-label">Live demo</p>
+      <p class="rail-note">Tap any tinted line to open the note popover.</p>
+      <p class="rail-note">Pick a cast member, pick a type, then <kbd>Enter</kbd> to log it.</p>
+      <p class="rail-note">End Run generates the report, as it does in the app.</p>
+      <p class="rail-note rail-note--flag">A replica, not the live app. The production, script and cast are invented.</p>
+    </aside>
+  </div>
+
+  <div class="stage">
+    <div class="frame">
+      <div class="app-topbar">
+        <span class="app-topbar-logo">Line Notes</span>
+        <div class="app-topbar-tabs">
+          <button class="app-tab app-tab--active">Run Show</button>
+          <button class="app-tab">Script Editor</button>
+          <button class="app-tab">Cast &amp; Crew</button>
+          <button class="app-tab">Settings</button>
+        </div>
+        <button class="topbar-btn">Sign Out</button>
+      </div>
+      <div id="demo-mount" class="demo-mount"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE RUN
+============================================================ -->
+<section class="band" id="run">
+  <div class="doc">
+    <div class="doc-body">
+      <h2>From &ldquo;places&rdquo; to<br>&ldquo;thanks, everyone.&rdquo;</h2>
+      <p class="say">How an evening with Line Notes actually goes, hour by hour.</p>
+
+      <ol class="run">
+        <li>
+          <span class="run-t">17:00</span>
+          <div class="run-say">
+            <h3>Open the script</h3>
+            <p>Pull up tonight&rsquo;s PDF. Zones, cues, and cast colors load from last night exactly where you left them.</p>
+          </div>
+        </li>
+        <li>
+          <span class="run-t">19:30</span>
+          <div class="run-say">
+            <h3>Start the run</h3>
+            <p>Start Run asks for a session title and your page count, then opens the session. Everything you log from here belongs to it.</p>
+          </div>
+        </li>
+        <li>
+          <span class="run-t">22:14</span>
+          <div class="run-say">
+            <h3>Tap, type, done</h3>
+            <p>Line skipped on page 4? Tap the line, pick who it belongs to, add a word of context, Enter. Eyes back on stage.</p>
+          </div>
+        </li>
+        <li>
+          <span class="run-t">23:08</span>
+          <div class="run-say">
+            <h3>Send the notes</h3>
+            <p>End &amp; Generate Report closes the session and splits the notes by actor. Print it, save it as a PDF, or send it out by email.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <aside class="rail">
+      <p class="rail-label">The run</p>
+      <p class="rail-note">
+        The report records the session title, the run&rsquo;s duration, the page count, and
+        every note grouped under the actor it belongs to.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICE
+============================================================ -->
+<section class="band" id="price">
+  <div class="doc">
+    <div class="doc-body">
+      <h2>Priced per production,<br>never per person.</h2>
+      <p class="say">
+        Invite your ASMs, your director, and your whole cast at no extra cost. One
+        subscription covers unlimited productions. Start with seven free days and cancel
+        whenever you like.
+      </p>
+
+      <div class="rate">
+        <article class="term">
+          <p class="term-name">Monthly</p>
+          <p class="term-fig">$9<span>/month</span></p>
+          <p class="term-sub">Month to month. Cancel any time.</p>
+          <p class="stamp">First 7 days free</p>
+          <ul>
+            <li>Unlimited productions</li>
+            <li>Unlimited cast and crew, by join code</li>
+            <li>Seven note types, anchored per line</li>
+            <li>Run reports split by actor</li>
+            <li>Print, save as PDF, or email</li>
+            <li>Bookmarks, 2-up view, scratchpad</li>
+          </ul>
+          <a class="btn btn--plain btn--block" href="https://app.linenotes.io?signup=production">Start free trial</a>
+        </article>
+
+        <article class="term term--set">
+          <p class="term-name">Annual</p>
+          <p class="term-fig">$90<span>/year</span></p>
+          <p class="term-sub">Two months off. Same everything.</p>
+          <p class="stamp">First 7 days free</p>
+          <ul>
+            <li>Unlimited productions</li>
+            <li>Unlimited cast and crew, by join code</li>
+            <li>Seven note types, anchored per line</li>
+            <li>Run reports split by actor</li>
+            <li>Print, save as PDF, or email</li>
+            <li>Bookmarks, 2-up view, scratchpad</li>
+          </ul>
+          <a class="btn btn--pen btn--block" href="https://app.linenotes.io?signup=production">Start free trial</a>
+        </article>
+
+        <article class="term">
+          <p class="term-name">Enterprise</p>
+          <p class="term-fig">Custom<span>/pricing</span></p>
+          <p class="term-sub">For producing companies, universities, and houses running a full season.</p>
+          <p class="stamp stamp--plain">Custom terms</p>
+          <ul>
+            <li>Everything in Annual</li>
+            <li>One account for your entire season</li>
+            <li>Shared cast and crew across productions</li>
+            <li>Multiple stage manager seats</li>
+            <li>Consolidated billing and invoicing</li>
+            <li>Custom note types</li>
+            <li>Onboarding and priority support</li>
+          </ul>
+          <a class="btn btn--plain btn--block" href="/contact">Contact sales</a>
+        </article>
+      </div>
+    </div>
+
+    <aside class="rail">
+      <p class="rail-label">Price</p>
+      <p class="rail-note">
+        A per-seat tool punishes you for inviting the director. This one does not: the
+        price is the same with four people in the session or forty.
+      </p>
+      <p class="rail-note">
+        Buying for a department, a university, or a company in rep? Enterprise is priced per
+        company and set up around how your season actually runs.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUESTIONS
+============================================================ -->
+<section class="band" id="questions">
+  <div class="doc">
+    <div class="doc-body">
+      <h2>Asked at every load-in.</h2>
+
+      <dl class="qa">
+        <div>
+          <dt>Will it work on the house Mac mini in the booth?</dt>
+          <dd>Anything running a recent Chrome, Edge, Safari, or Firefox. The interface is built dark for a dim booth, and there is nothing to install.</dd>
+        </div>
+        <div>
+          <dt>How do my ASMs and director get in?</dt>
+          <dd>Every production has a join code. Share it with the company and they are in &mdash; there is no per-seat licence and no extra charge per person.</dd>
+        </div>
+        <div>
+          <dt>What about scanned PDFs from a stage rental?</dt>
+          <dd>Line Notes needs a PDF with a selectable text layer. If your script was scanned from a physical copy, run it through OCR &mdash; Adobe Acrobat will do it &mdash; before uploading. You can also draw line zones by hand in the Script Editor.</dd>
+        </div>
+        <div>
+          <dt>Why not just use a shared doc?</dt>
+          <dd>A note here is anchored to a line, an actor, a session, and a type. That structure is what lets the report group itself by actor, without anyone reading the document back through.</dd>
+        </div>
+        <div>
+          <dt>Can I get my data out?</dt>
+          <dd>Every run produces a report you can print, save as a PDF, or send by email. Past run reports stay listed in the production and can be reopened any time.</dd>
+        </div>
+      </dl>
+    </div>
+
+    <aside class="rail">
+      <p class="rail-label">Questions</p>
+      <p class="rail-note">
+        Something not answered here? Write to us and we will answer it.
+      </p>
+      <p class="rail-note"><a class="rail-link" href="/contact">Contact &rarr;</a></p>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLOSE
+============================================================ -->
+<section class="close">
+  <div class="close-inner">
+    <h2>Curtain in three hours.</h2>
+    <p>Setup takes about twenty minutes, and the first week is free.</p>
+    <div class="acts">
+      <a class="btn btn--pen btn--lg" href="https://app.linenotes.io?signup=production">Start 7-day free trial</a>
+      <a class="btn btn--plain btn--lg" href="#demo">Back to the demo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOT
+============================================================ -->
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-id">
+        <p class="foot-mark">Line Notes</p>
+        <p class="foot-tag">Stage management software for live runs.</p>
+      </div>
+      <nav aria-label="Product">
+        <h4>Product</h4>
+        <a href="#marks">The marks</a>
+        <a href="#demo">Live demo</a>
+        <a href="#run">The run</a>
+        <a href="#price">Price</a>
+        <a href="https://app.linenotes.io">Sign in</a>
+      </nav>
+      <nav aria-label="Company">
+        <h4>Company</h4>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+    <div class="foot-rule">
+      <span>&copy; 2026 Line Notes Inc.</span>
       <span>Made between previews</span>
     </div>
   </div>
 </footer>
 
-<!-- =========================================================
-     SCRIPTS — React + Babel
-========================================================= -->
 <script type="module" src="/src/main.jsx"></script>
 
-<!-- =========================================================
-     COOKIE CONSENT BANNER
-========================================================= -->
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
-  <p class="cookie-text">We use cookies to analyze site traffic and improve your experience. <a href="/privacy" class="cookie-link">Privacy Policy</a></p>
-  <div class="cookie-actions">
-    <button id="cookie-accept" class="cookie-btn cookie-btn-primary">Accept</button>
-    <button id="cookie-decline" class="cookie-btn cookie-btn-secondary">Decline</button>
+<!-- ============================================================
+     COOKIE CONSENT
+============================================================ -->
+<div id="cookie-banner" class="consent" role="dialog" aria-label="Cookie consent" aria-live="polite" hidden>
+  <p>We use cookies to measure site traffic. <a href="/privacy">Privacy policy</a></p>
+  <div class="consent-act">
+    <button id="cookie-accept" class="btn btn--pen btn--sm">Accept</button>
+    <button id="cookie-decline" class="btn btn--plain btn--sm">Decline</button>
   </div>
 </div>
 
 <script>
-(function() {
+(function () {
   var banner = document.getElementById('cookie-banner');
-  var consent = localStorage.getItem('cookie-consent');
-  if (!consent) banner.style.display = 'flex';
-  document.getElementById('cookie-accept').addEventListener('click', function() {
-    localStorage.setItem('cookie-consent', 'accepted');
-    banner.style.display = 'none';
-  });
-  document.getElementById('cookie-decline').addEventListener('click', function() {
-    localStorage.setItem('cookie-consent', 'declined');
-    banner.style.display = 'none';
-  });
+  if (!localStorage.getItem('cookie-consent')) banner.hidden = false;
+  function answer(v) {
+    localStorage.setItem('cookie-consent', v);
+    banner.hidden = true;
+  }
+  document.getElementById('cookie-accept').addEventListener('click', function () { answer('accepted'); });
+  document.getElementById('cookie-decline').addEventListener('click', function () { answer('declined'); });
 })();
 </script>
 

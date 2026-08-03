@@ -3,3 +3,8 @@ dist
 .DS_Store
 *.log
 .vite
+
+# agent tooling (vendored skills + local editor settings)
+.agents
+.claude
+skills-lock.json
