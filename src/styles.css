@@ -1334,3 +1334,182 @@ kbd {
   .foot-rule { flex-direction: column; align-items: flex-start; gap: 8px; }
   .consent { flex-direction: column; align-items: flex-start; }
 }
+
+/* ===================================================================
+   SUBPAGES — privacy, terms, contact
+   Same booth-dark world as the homepage; these are documents, so the
+   measure is tight and the rules do the sectioning.
+=================================================================== */
+
+.page-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 80px) var(--gutter) clamp(64px, 7vw, 96px);
+}
+.page-wrap--contact { max-width: 1080px; }
+
+.page-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--red-text);
+  margin-bottom: 14px;
+}
+.page-header { margin-bottom: 40px; }
+.page-header h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 700;
+  font-stretch: 88%;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+}
+.last-updated {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Legal body ──────────────────────────────────────────────────── */
+
+.legal-body { font-size: 0.9375rem; line-height: 1.75; color: var(--text-secondary); }
+.legal-body h2 {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-stretch: 92%;
+  color: var(--text-primary);
+  margin: 44px 0 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+.legal-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
+.legal-body h3 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  margin: 28px 0 10px;
+}
+.legal-body p { margin-bottom: 16px; }
+/* The global reset kills markers; legal prose needs them back. */
+.legal-body ul { list-style: disc; margin: 0 0 18px 22px; }
+.legal-body ol { list-style: decimal; margin: 0 0 18px 22px; }
+.legal-body li::marker { color: var(--red-text); }
+.legal-body li { margin-bottom: 9px; }
+.legal-body strong { color: var(--text-primary); font-weight: 700; }
+.legal-body a { color: var(--red-text); text-decoration: none; border-bottom: 1px solid var(--red-line); }
+.legal-body .caps { text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.02em; }
+.divider { height: 1px; background: var(--rule); border: none; margin: 40px 0; }
+
+.contact-box {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-left: 2px solid var(--red);
+  padding: 22px 26px;
+  margin-top: 36px;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+/* ── Contact page ────────────────────────────────────────────────── */
+
+.page-hero { margin-bottom: 48px; max-width: 46ch; }
+.page-hero h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 700;
+  font-stretch: 88%;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.page-hero p { font-size: 1rem; line-height: 1.6; color: var(--text-secondary); }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+.contact-block h2, .help-block h2 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.contact-item { margin-bottom: 24px; }
+.contact-item-label { font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 5px; }
+.contact-item-value a {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--red-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red-line);
+}
+.contact-block + .contact-block { margin-top: 44px; }
+.response-note { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6; }
+.form-note {
+  display: flex; align-items: flex-start; gap: 9px;
+  font-size: 0.8125rem; color: var(--text-muted); line-height: 1.6;
+  margin-bottom: 24px;
+}
+/* Inline icon — unsized SVGs blow up to fill their flex line. */
+.form-note svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 2px; color: var(--red-text); }
+.help-block p { font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
+.help-block a { color: var(--red-text); text-decoration: none; border-bottom: 1px solid var(--red-line); }
+
+.form-card { background: var(--bg-card); border: 1px solid var(--bg-border); padding: 32px; }
+.field-group { margin-bottom: 18px; }
+.field-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+}
+.form-card input, .form-card select, .form-card textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--bg-base);
+  border: 1px solid var(--bg-border);
+  border-radius: 0;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  outline: none;
+}
+.form-card textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+.form-card input:focus, .form-card select:focus, .form-card textarea:focus { border-color: var(--red); }
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--red);
+  color: #fff;
+  border: 1px solid var(--red);
+  border-radius: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+@media (hover: hover) {
+  .legal-body a:hover, .contact-item-value a:hover,
+  .help-block a:hover { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+  .btn-primary:hover { background: var(--red-dim); border-color: var(--red-dim); }
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}

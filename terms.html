@@ -1,172 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service — Line Notes</title>
-  <meta name="description" content="Line Notes terms of service — the rules governing your use of the platform.">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --red:            #E8221A;
-      --red-dim:        #B81A13;
-      --bg-deep:        #0D0D0D;
-      --bg-base:        #141414;
-      --bg-card:        #1C1C1C;
-      --bg-border:      #2E2E2E;
-      --text-primary:   #EDEBE6;
-      --text-secondary: #A8A6A1;
-      --text-muted:     #5E5C58;
-    }
-
-    html, body {
-      background: var(--bg-deep);
-      color: var(--text-primary);
-      font-family: 'Outfit', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a { color: var(--red); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ::selection { background: var(--red); color: #fff; }
-    :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
-
-    /* NAV */
-    .site-nav {
-      position: sticky; top: 0; z-index: 60;
-      display: flex; align-items: center; gap: 24px;
-      height: 56px; padding: 0 32px;
-      background: rgba(13,13,13,0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--bg-border);
-    }
-    .nav-wordmark {
-      font-size: 17px; font-weight: 700; letter-spacing: 0;
-      color: var(--text-primary);
-      padding-right: 24px;
-      border-right: 1px solid var(--bg-border);
-      height: 56px; display: flex; align-items: center;
-      text-decoration: none;
-    }
-    .nav-wordmark:hover { text-decoration: none; }
-    .nav-back {
-      font-size: 13px; color: var(--text-secondary);
-      display: flex; align-items: center; gap: 6px;
-      transition: color 0.15s;
-    }
-    .nav-back:hover { color: var(--text-primary); text-decoration: none; }
-    .nav-back svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-    /* LAYOUT */
-    .page-wrap {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 64px 32px 96px;
-    }
-
-    /* HEADER */
-    .page-header {
-      margin-bottom: 48px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--bg-border);
-    }
-    .page-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; font-weight: 500;
-      text-transform: uppercase; letter-spacing: 0.18em;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-    .page-header h1 {
-      font-size: 32px; font-weight: 700; line-height: 1.2;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-    .page-header .last-updated {
-      font-size: 13px; color: var(--text-muted);
-      font-family: 'DM Mono', monospace;
-    }
-
-    /* CONTENT */
-    .legal-body h2 {
-      font-size: 18px; font-weight: 600;
-      color: var(--text-primary);
-      margin-top: 48px; margin-bottom: 14px;
-    }
-    .legal-body h3 {
-      font-size: 14px; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--text-secondary);
-      margin-top: 28px; margin-bottom: 10px;
-      font-family: 'DM Mono', monospace;
-    }
-    .legal-body p {
-      font-size: 15px; color: var(--text-secondary);
-      margin-bottom: 16px;
-    }
-    .legal-body ul, .legal-body ol {
-      font-size: 15px; color: var(--text-secondary);
-      padding-left: 24px;
-      margin-bottom: 16px;
-    }
-    .legal-body li { margin-bottom: 6px; }
-    .legal-body strong { color: var(--text-primary); font-weight: 600; }
-
-    .legal-body .caps {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-      letter-spacing: 0.01em;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--bg-border);
-      margin: 48px 0;
-    }
-
-    .contact-box {
-      background: var(--bg-card);
-      border: 1px solid var(--bg-border);
-      padding: 24px 28px;
-      margin-top: 48px;
-    }
-    .contact-box p {
-      margin-bottom: 8px;
-    }
-    .contact-box p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 600px) {
-      .page-wrap { padding: 40px 20px 72px; }
-      .page-header h1 { font-size: 26px; }
-      .site-nav { padding: 0 20px; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — Line Notes</title>
+<meta name="description" content="The terms governing your use of the Line Notes platform.">
+<meta property="og:title" content="Terms of Service — Line Notes">
+<meta property="og:description" content="The terms governing your use of the Line Notes platform.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://linenotes.io/terms">
+<meta property="og:url" content="https://linenotes.io/terms">
+<meta property="og:image" content="https://linenotes.io/og-image.png">
+<meta property="og:site_name" content="Line Notes">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/src/styles.css" />
 </head>
 <body>
+<a href="#doc-start" class="skip">Skip to content</a>
 
-<nav class="site-nav">
-  <a class="nav-wordmark" href="/">LINE NOTES</a>
-  <a class="nav-back" href="/">
-    <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M8.5 2L3.5 7L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    Back to home
-  </a>
-</nav>
+<header class="slug">
+  <a class="slug-mark" href="/">Line Notes</a>
+  <nav class="slug-nav" aria-label="Sections">
+    <a href="/#marks">The note</a>
+    <a href="/#demo">Demo</a>
+    <a href="/#run">The run</a>
+    <a href="/#price">Price</a>
+    <a href="/#questions">Questions</a>
+  </nav>
+  <div class="slug-act">
+    <a class="btn btn--quiet" href="https://app.linenotes.io">Sign in</a>
+    <a class="btn btn--pen" href="https://app.linenotes.io?signup=production">Start free trial</a>
+  </div>
+</header>
 
-<main class="page-wrap">
+<main class="page-wrap" id="doc-start">
 
   <header class="page-header">
     <div class="page-label">Legal</div>
@@ -365,5 +237,33 @@
   </div>
 </main>
 
+<footer class="foot">
+  <div class="foot-inner">
+    <div class="foot-grid">
+      <div class="foot-id">
+        <p class="foot-mark">Line Notes</p>
+        <p class="foot-tag">Stage management software for live runs.</p>
+      </div>
+      <nav aria-label="Product">
+        <h4>Product</h4>
+        <a href="/#marks">The marks</a>
+        <a href="/#demo">Live demo</a>
+        <a href="/#run">The run</a>
+        <a href="/#price">Price</a>
+        <a href="https://app.linenotes.io">Sign in</a>
+      </nav>
+      <nav aria-label="Company">
+        <h4>Company</h4>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+    <div class="foot-rule">
+      <span>&copy; 2026 Line Notes Inc.</span>
+      <span>Made between previews</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
