@@ -47,7 +47,7 @@ const CAST = [
 // during a run and they are the only clickable regions.
 const PAGE = [
   { kind: 'title',  text: 'THE KETTLE' },
-  { kind: 'sub',    text: 'Act II, Scene 4 — Kitchen, evening' },
+  { kind: 'sub',    text: 'Act II, Scene 4. Kitchen, evening' },
   { kind: 'dir',    text: 'MARIA enters, holding a paper bag. She sets it on the counter and does not turn on the light.' },
   { kind: 'cue',    text: 'MARIA' },
   { kind: 'line',   text: 'We agreed on Tuesday. I marked it on the calendar.', zone: true, cast: 'lee' },
@@ -100,11 +100,11 @@ const castById = (id) => CAST.find(c => c.id === id);
 /* ------------------------------------------------------------------ */
 function RunShowDemo() {
   const [running, setRunning]   = useState(true);
-  const [session, setSession]   = useState('The Kettle — Aug 2');
+  const [session, setSession]   = useState('The Kettle, Aug 2');
   const [notes, setNotes]       = useState(SEED_NOTES);
   const [selectedType, setType] = useState('Skip');
   const [popover, setPopover]   = useState(null);
-  const [scratch, setScratch]   = useState('Watch flicker before "kettle" line — ME standby for L43.');
+  const [scratch, setScratch]   = useState('Watch flicker before "kettle" line. ME standby for L43.');
   const [modal, setModal]       = useState(null);   // 'start' | 'end' | null
   const [report, setReport]     = useState(null);
   const [toast, setToast]       = useState(null);
@@ -170,7 +170,7 @@ function RunShowDemo() {
         <div className="rs-sidebar-header">
           <span className="ln-logo">Line Notes</span>
           <span className="show-name">{PRODUCTION}</span>
-          <span className="heartbeat-dot" title="Connected" />
+          <span className="heartbeat-dot" />
           <button className="rs-actors-btn">Actors</button>
         </div>
 
@@ -342,7 +342,7 @@ function RunShowDemo() {
 
       {modal === 'start' && (
         <StartRunModal
-          defaultTitle={PRODUCTION + ' — Aug 2'}
+          defaultTitle={PRODUCTION + ', Aug 2'}
           onCancel={() => setModal(null)}
           onStart={(title) => { setSession(title); setRunning(true); setNotes([]); setReport(null); setModal(null); }}
         />
