@@ -2,6 +2,12 @@
 
 <!-- impeccable:product-schema 1 -->
 
+**Source of truth for functionality:** `FEATURES.md` in this repo — a feature-by-feature
+inventory read directly from the application source at `/Users/nrg/line-notes` on
+2026-08-03 (HEAD `69a5f11`). This file records the *strategic* product record: who it is
+for, what it claims, what it may never claim. Where the two disagree about what the app
+does, **FEATURES.md wins** and this file should be corrected to match.
+
 ## Platform
 
 web
@@ -24,9 +30,10 @@ behind it.
 ## Product Purpose
 
 Line Notes lets a stage manager log line notes *during* the run instead of
-reconstructing them afterward. Tap an annotatable line zone in the script, pick a cast
+reconstructing them afterward. Click an annotatable line zone in the script, pick a cast
 member, pick a note type, optionally type context, and move on. Ending the run generates
-a report that groups the notes by actor, which can be printed, saved as PDF, or emailed.
+a report that groups the notes by actor, which can be printed, saved as PDF, or prepared
+for sending one actor at a time.
 
 Success is that the notes go out at intermission or immediately after curtain, correct
 and per-actor, with no midnight sorting session.
@@ -41,24 +48,36 @@ that structure, which is why distribution stays manual with those tools.
 
 ## Operating Context
 
-- Text-based PDF scripts are uploaded; speakers, stage directions, music lines, and
-  clickable line zones are auto-extracted per page and hand-correctable in the Script
-  Editor. Scanned PDFs require manually drawn line zones; OCR is roadmap, not shipped.
+- Text-layer PDF scripts are uploaded; speakers, stage directions, music lines, page
+  numbers, and clickable line zones are auto-extracted per page and hand-correctable in
+  the Script Editor. Extraction is saved per production, so it happens once for the whole
+  company. Scanned PDFs without a text layer fall back to evenly spaced blank strips that
+  are clickable but carry no script text; users are told to OCR in Adobe Acrobat *before*
+  uploading. **Line Notes performs no OCR, and OCR is not on a committed roadmap.**
 - Runs happen on whatever machine is in the booth — frequently a house Mac mini. Recent
   Chrome, Edge, Safari, or Firefox. No install.
-- Venue Wi-Fi is unreliable. The app writes locally and syncs on reconnect; a heartbeat
-  indicator shows sync state.
-- Multiple devices in one session: PSM, ASMs, director. Notes propagate in real time.
-- LX, SQ, fly, and follow-spot cues live as inline pills on the script; standby states
-  surface in a right-hand rail.
+- **A live connection is required.** There is no offline mode: Firestore persistence is
+  not enabled and PDF.js loads from a CDN. Venue Wi-Fi being unreliable is a real problem
+  for the audience, but it is a problem this product does not currently solve — never
+  claim local-write-and-sync-on-reconnect.
+- Multiple devices in one session: PSM, ASMs, director. Notes and cast changes propagate
+  in real time through Firestore `onSnapshot`. This is verified and may be stated.
+- **Desktop-first.** Note-taking degrades acceptably to a tablet (tabs move to a bottom
+  bar under 768px, the sidebar becomes a drawer under 1024px). The Script Editor is
+  mouse-only — zone drawing, dragging, and resizing have no touch handling. Do not imply
+  script prep works on a tablet or phone.
+- **No cue tracking of any kind.** No LX, sound, fly, or follow-spot cues; no cue pills,
+  no standby rail, no cue sheet. The word "cue" on the marketing site must only ever mean
+  a *character cue* (the speaker's name above a line), and even then it is safer avoided.
 - Real artifacts of this world that the product sits among: the prompt book, the calling
   script and its margin, the rehearsal/performance report, the call sheet, the cue sheet,
-  the French scene breakdown, the playbill.
+  the French scene breakdown, the playbill. These are audience language, not features.
 
 ## Verified App Behaviour
 
-Observed directly in the live app at app.linenotes.io on 2026-08-02. This section
-overrides any older description; earlier copy on the marketing site contradicted it.
+Read from application source on 2026-08-03 and recorded in full in `FEATURES.md`. This
+section overrides any older description; earlier copy on the marketing site contradicted
+it. Consult FEATURES.md before writing any functional claim.
 
 - **Seven note types**, in this order and casing: `Skip, Para, Called, Add, Gen, Jumped,
   Missed`. There is no DROP / TRANS / NOTE. Definitions, confirmed by the owner:
@@ -69,42 +88,77 @@ overrides any older description; earlier copy on the marketing site contradicted
   - `Gen` — a general note; the catch-all.
   - `Jumped` — an actor jumped ahead to later in the script.
   - `Missed` — an actor missed a line, or words inside one.
-- **No keyboard shortcuts for note types were found.** F1–F4 does nothing.
+  Note types are **not user-configurable** (custom types are an Enterprise forward
+  commitment, not a shipped feature).
+- **Keyboard shortcuts exist, but are scoped.** In Run Show: `←` `→` `[` `]` page turns,
+  `↑` `↓` zone focus, `Enter` open the popover, `Esc` close. In the note popover: `1`–`9`
+  cast selection, `s p l a g j m` note types, `Enter` confirm, `Esc` cancel. **There are
+  no F-key shortcuts**, and the quick-entry popover maps only `s p l a g`. "Keyboard
+  shortcuts for page turns, cast selection, and note types" is accurate; "fully
+  keyboard-driven" is not.
 - **No live session timer and no live note counters** anywhere in Run Show. Duration and
-  note count appear only in the run report afterward.
+  note count appear only in the run report afterward. (Per-cast-member note counts do
+  appear in the sidebar for the current session.)
 - Right rail while idle: `Start Run` + `Run Reports` list. While running: session title,
   `End Run`, and `Scratchpad` — nothing else.
 - `Start Run` opens a modal asking for **session title** and **total script pages**.
-- `End Run` opens a modal for final scratchpad notes, then `End & Generate Report`.
-- Run report contains: Total Duration, Page Count, Note Count, and **Line Notes by
-  Actor**. Actions on it: `Print / Save PDF`, `Send Email`, `Close`. **No JSON export
-  was found.**
+- `End Run` opens a modal for final scratchpad notes, then `End & Generate Report`. An
+  ended session can be **resumed**.
+- Run report contains: Total Duration, Page Count, Note Count, SM Notes (the scratchpad),
+  and **Line Notes by Actor**. Actions: `Print / Save PDF`, `Send Email`, `Close`.
+  **No CSV or JSON export exists** anywhere in the app.
+- **`Send Email` is a per-actor `mailto:` and clipboard hand-off, not a mail sender.**
+  Each actor gets an **Email** button (opens the user's own mail client, body truncated at
+  ~1800 characters) and a **Copy** button (full untruncated list). There is no bulk send
+  and no server-side delivery. Say "prepares each actor's notes for sending", never
+  "emails your cast".
 - **A note cannot be logged until cast members exist** — the app blocks it with
-  "Add cast members first — go to Cast & Crew tab".
-- Joining a production is by **7-character join code** (regenerate / deactivate), not by
-  email invitation. Cast members do carry an email, used for delivery.
+  "Add cast members first — go to Cast & Crew tab" — and only while a run session is
+  active. Three entry paths: click a line zone, drag a rectangle on blank page area, or
+  the floating action button.
+- Joining a production is by **7-character join code** (regenerate / deactivate, 30-day
+  expiry, rate-limited to 10 attempts per user per hour), not by email invitation.
+  **There are no email invitations.** Cast members do carry an email, used for delivery.
+- **Authentication is email + password only** — no Google sign-in, no SSO, no magic link.
+  Email verification is mandatory. Email address changes are not supported (users are told
+  to contact `hello@linenotes.io`).
 - Cast member fields: full name, email, **role type** (`Actor, Director, Stage Manager,
   Crew, Other`), one or more **characters**, and a colour from a fixed 10-swatch palette
   (`#C45C4A #D4844A #C8A96E #7AB87A #5B9BD4 #8B6CC4 #C46CA4 #6AB4B4 #D4B44A #7A9AB4`).
-  Swatches are round.
-- Production membership role seen: `★ OWNER`. **"PSM" is not a role in the app.**
-- Top bar: wordmark, then `Run Show / Script Editor / Cast & Crew / Settings`, then
-  `Sign Out`. It shows **no production title and no role badge**; the production name sits
-  in the Run Show sidebar header.
-- Script Editor: `Zones` toggle, `Line Zones` panel with `Re-extract`, `+ Draw`, `Clear`,
-  `Save`, plus per-zone X/Y/W/H, live text, and `Assign Actor(s)`. Zone kind seen:
-  `DIALOGUE`. Both automatic extraction and manual drawing exist.
-- Settings: production title, join code, script PDF replace, members.
-- Scripts must be **text-layer PDFs**; the app instructs users to run scanned scripts
-  through Adobe Acrobat OCR *before* uploading. OCR is not performed by Line Notes.
-- Confirmed present: `☆ Bookmarks`, `2-up`, page nav, edge page-turn controls.
+  Swatches are round. A per-member **Lines** button lists every script line assigned to
+  that person, grouped by page — a sides-like view, available to all members.
+- Production roles are **Owner** and **Member**. **"PSM" is not a role in the app.**
+  Owners can override ten individual permission flags per member, so a member can be
+  granted script editing without being made an owner. Firestore rules mirror this.
+- Top bar: wordmark, then `Run Show / Script Editor / Cast & Crew / Settings`, then an
+  **account menu** (user's name → Account settings, Manage billing, linenotes.io ↗, Sign
+  out). The topbar production title and role badge elements exist but are **empty in
+  normal use**; the production name sits in the Run Show sidebar header.
+- An **Account page** exists at `#/account`: display name, read-only email, password
+  change, membership/plan status, and account deletion.
+- Script Editor: automatic extraction plus full manual correction — draw, move, resize,
+  multi-select and group-drag, Select All & Drag, re-extract, clear, delete, per-zone
+  X/Y/W/H, text, type checkboxes, and `Assign Actor(s)`. **Five zone kinds:** dialogue,
+  character name, stage direction, music line, page number. Automatic speaker tagging
+  walks zones top-down and re-runs across all pages whenever a cast member's characters
+  change; hand-edited zones are locked and never overwritten. Auto-saves after 500ms.
+- **Script page numbering follows the script, not the PDF** — "Set p.1 here" sets a
+  per-production offset; front matter is labeled `i-1`, `i-2`. **2-up split** handles PDFs
+  printed two script pages per sheet.
+- Settings: production title, join code, script PDF replace (**replacing the script
+  deletes every zone document** and forces re-extraction), members with permission
+  overrides, and a danger zone (delete production for owners, leave production for
+  members).
+- Confirmed present: `☆ Bookmarks`, `2-up`, page nav, edge page-turn controls, Actors
+  overlay toggle.
+- **The sync heartbeat dot in the app is inert** — the element and its healthy/stale
+  styles exist, but no code ever sets its state. It renders as a static muted dot. It is
+  not a sync indicator and must not be described as one.
 
 ### Resolved by the owner (2026-08-03)
 
 - **No offline write-and-sync.** The claim that the app keeps writing locally and syncs on
   reconnect was removed from the site. Do not reintroduce it.
-- **No keyboard-driven operation.** "Fully keyboard-driven" was removed; no shortcuts were
-  found in Run Show.
 - **Setup takes about twenty minutes — confirmed accurate**, may be stated.
 - **Enterprise is a contact-sales tier, priced per company and scoped in conversation.**
   Terms are agreed with each company. The owner has committed to the following as included
@@ -115,25 +169,51 @@ overrides any older description; earlier copy on the marketing site contradicted
   app — do not add to this list without the owner's say-so. SSO/SAML, API access, audit log,
   SLA and retention controls are deliberately **not** offered.
 
-### Still unverified — never assert without checking
+### Resolved by source review (2026-08-03)
 
-Realtime multi-device sync; cue tracking of any kind (no LX/SQ/fly/follow-spot feature was
-found anywhere in the app).
+- **Realtime multi-device sync — confirmed present.** Line notes and cast use Firestore
+  `onSnapshot`; changes propagate live to every device in the production.
+- **Cue tracking — confirmed absent.** No cue feature of any kind exists in the codebase.
+  `scriptCues` and `diagrams` appear in the security and storage rules as scaffolding with
+  no code behind them. Any cue claim is false.
+- **Keyboard shortcuts — confirmed present but scoped** (see above). The earlier "no
+  keyboard shortcuts were found" note was wrong; they were simply not discoverable in the
+  UI.
 
 ## Capabilities and Constraints
 
-- Unlimited productions per company; unlimited cast and crew — pricing is flat, never per
-  seat. People join a production with its join code.
-- Run reports grouped by actor; print, save as PDF, or send by email.
-- Bookmarks, 2-up view, SM scratchpad.
-- Pricing: $9.00/month, $90.00/year, 7-day free trial, cancel anytime. Enterprise
-  (SSO/SAML, company-wide cast archive, API, onboarding, SLA, audit log, retention) is
-  contact-sales, no published price.
-- Not shipped, do not imply: OCR performed by Line Notes; changelog, roadmap, docs, API
-  reference, status page, press kit, and about pages are all unbuilt.
-- Terminology: run, run session, line note, note type, line zone, cast member, character,
-  join code, run report, scratchpad, prompt book, places, load-in, PSM, ASM. Note that
-  PSM/ASM are the audience's words, not roles the app implements.
+- Unlimited productions per paid account; unlimited members and unlimited cast on every
+  plan — **pricing is flat and never scales with people.** This is the strongest true
+  structural claim available. People join a production with its join code.
+- Run reports grouped by actor; print, save as PDF, or prepare per-actor email/clipboard
+  hand-off.
+- Bookmarks, 2-up view, SM scratchpad, script-page offset, per-member Lines report.
+- Pricing: **Workshop** free (1 production you own; joining others' productions is
+  unlimited); **Production** $9.00/month or $90.00/year, 7-day free trial with card
+  required up front. Stripe Checkout, webhook plan sync, billing portal for cards and
+  invoices, and a site-wide banner on `past_due` are all implemented. The free-plan limit
+  is enforced **client-side only** — do not describe it as enforced.
+- Enterprise is contact-sales with no published price. Its inclusions are the owner's
+  forward commitments listed above, not observable app features.
+- ⚠ **Self-serve cancellation is not live.** Customers cannot cancel their own
+  subscription; the Account page tells them to email `hello@linenotes.io` and every
+  cancellation is processed by hand in the Stripe Dashboard. This is blocked on a Stripe
+  Dashboard setting (Billing → Customer portal → Functionality → Cancel subscriptions) in
+  both test and live mode, not on code. **Until that is switched on, "cancel anytime" must
+  be qualified or left off the marketing site** — an unqualified promise sends a paying
+  visitor into a dead end. Raise this with the owner rather than working around it.
+- Not shipped, do not imply: cue tracking of any kind; OCR performed by Line Notes; CSV or
+  JSON export; JSON import; server-side email; offline mode; live session timer or live
+  note counters; page timing (an "Edit Times" control exists but nothing ever writes a page
+  log); email invitations; email address changes; SSO/SAML; API access; audit log; native
+  mobile apps; changelog, roadmap, docs, API reference, status page, press kit, and about
+  pages.
+- Terminology: production, member, cast member, character, line zone, run session, line
+  note, note type, run report, scratchpad, join code, script page offset, bookmark. The
+  audience's words — PSM, ASM, prompt book, cue sheet, French scene — are fine as language
+  but are **not** roles or features the app implements.
+- **`DESIGN.md` in the *app* repo is stale** and still describes four note types (DROP /
+  ADD / TRANS / NOTE). Never source note types from it.
 
 ## Brand Commitments
 
@@ -152,8 +232,11 @@ found anywhere in the app).
   proof asset and it is a real demonstration, not a screenshot.
 - **No real customers, named productions, testimonials, logos, press, or usage numbers
   exist.** Future work must not fabricate any of these. Demonstration content — the
-  script, cast, notes, cue list — is synthetic and must be labeled where a visitor could
+  script, cast, and notes — is synthetic and must be labeled where a visitor could
   mistake it for a real production.
+- Known divergence to fix, not to copy: the replica's heartbeat dot animates and is
+  titled "Connected". The real dot never changes state. Either drop it from the replica or
+  render it static — an animated one implies a sync indicator the app does not have.
 
 ## Product Principles
 
@@ -161,8 +244,10 @@ found anywhere in the app).
    the person in the booth.
 2. Structure is the product. A note without a line, an actor, a session, and a type is
    just text, and text has to be sorted by hand.
-3. The run does not stop for the software. Offline, flaky Wi-Fi, and a house machine are
-   the normal case, not the edge case.
+3. Claim only what the code does. This product's audience can tell instantly when software
+   was described by someone who has not run a show on it, and the first build of this site
+   invented seven features that do not exist. Every functional sentence traces to
+   FEATURES.md.
 4. The whole company gets in free. Price scales with productions, never with people.
 5. Demonstrate rather than claim. The live demo carries the argument; there is no proof
    to borrow yet.
@@ -170,4 +255,7 @@ found anywhere in the app).
 ## Accessibility & Inclusion
 
 Used in a dim house with divided attention, so contrast and hit targets matter more than
-usual. Fully keyboard-operable is a product requirement, not a nicety.
+usual. Keyboard operation is a stated product goal and is **partially** delivered — page
+turns, zone focus, cast selection, note types, confirm, and cancel all have keys, scoped
+to Run Show and the note popover. It is not yet complete enough to call the app
+keyboard-driven.

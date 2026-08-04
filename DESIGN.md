@@ -108,13 +108,17 @@ One authored set in `src/demo.jsx`: 16px box, 1.5px stroke, `square` caps, `mite
 ## The demo
 
 `src/demo.jsx` is a **replica of the live Run Show screen**, not an illustration. Its
-structure was verified against app.linenotes.io on 2026-08-02 and the verified behaviour
-is recorded in PRODUCT.md under "Verified App Behaviour". Treat that section as the spec.
+structure was verified against app.linenotes.io on 2026-08-02 and against the application
+source on 2026-08-03. The full inventory is `FEATURES.md`; PRODUCT.md's "Verified App
+Behaviour" is the short form. Treat those as the spec, FEATURES.md first.
 
 The rules that keep it honest:
 
 1. **Seven note types**, exactly `Skip Para Called Add Gen Jumped Missed`. Neutral chips,
-   red active state, no per-type colour, no keyboard shortcuts.
+   red active state, no per-type colour. The app does have shortcuts (`s p l a g j m` in
+   the popover, `1`–`9` for cast, arrows for pages) but **no F-keys**; the replica shows
+   no key hints, which is the safe default — if hints are ever added, they must be those
+   keys and no others.
 2. **No live timer and no live counters.** Duration and note count belong to the report.
    Do not add them back because they make the frame look busier.
 3. The right rail holds **only** Start Run + Run Reports when idle, and session title +
@@ -126,6 +130,13 @@ The rules that keep it honest:
    only while a run is active.
 6. Invented content is limited to the production, script, cast and notes, and the page
    says so beside the frame.
+7. The `cue` kind in the replica's script data means a **character cue** — the speaker's
+   name above a line. It is not a technical cue and must never be presented as one; the
+   app has no cue tracking whatsoever.
+8. The replica's `.heartbeat-dot` is a static muted dot with no tooltip, matching the app,
+   where the element exists but nothing ever sets its state. It previously read
+   "Connected"; that title was removed on 2026-08-03. Do not restore it, and do not build
+   any sync-status affordance on top of this dot.
 
 `styles.css` styles a class contract `demo.jsx` owns: `.demo-body`, `.rs-*`, `.ln-*`,
 `.char-*`, `.note-*`, `.popover-*`, `.zone*`, `.pdf-*`, `.app-*`. Renaming on one side
@@ -144,8 +155,9 @@ fall out of view otherwise.
 4. Demonstration content is labeled wherever a visitor could read it as a real production.
 5. No numbered section markers unless the sequence itself is the information — the run
    timeline's clock times qualify; a feature list does not.
-6. **Check the app before describing the app.** Every functional claim on this page is
-   supposed to be traceable to PRODUCT.md's "Verified App Behaviour". The first build of
-   this page invented four note types, F-key shortcuts, a live session timer, live
-   counters, a cue-standby rail, email invitations, and a JSON export — none of which
-   exist. Anything in the "Still unverified" list is not to be asserted.
+6. **Check the app before describing the app.** Every functional claim on this page must
+   be traceable to `FEATURES.md` (the source-level inventory) or PRODUCT.md's "Verified
+   App Behaviour". The first build of this page invented four note types, F-key shortcuts,
+   a live session timer, live counters, a cue-standby rail, email invitations, offline
+   sync, and a JSON export — none of which exist. FEATURES.md §11 "Not shipped" is the
+   list to check against before writing any capability sentence.
