@@ -144,8 +144,8 @@ A simple form: character name (persists between entries), page-number dropdown, 
 counter, autosave reminder. Exports to RTF, HTML, email, plain text, and a "Quick Export"
 that filters by character/page/reason to the clipboard.
 
-**Relevance:** it's free and it exports better than we do (five formats vs. our zero — we have
-**no CSV or JSON export at all**, `FEATURES.md` §11). But it never touches the script: the SM
+**Relevance:** it's free and it still exports better than we do (five formats against our
+one — CSV only, `FEATURES.md` §7). But it never touches the script: the SM
 types the page number and retypes the line. Its existence proves demand at the free tier and
 sets a floor: a free tool already covers the bare data-entry job.
 
@@ -272,13 +272,13 @@ Line Notes column is strictly per [`FEATURES.md`](FEATURES.md).
 | Per-actor grouped report | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 | **One-click email to whole cast** | ❌ | ✅ | ✅ | partial | — | — | — |
 | Free actor-facing app | ❌ | ❌ | ✅ | ❌ | ✅ view-only | ❌ | ✅ |
-| CSV / data export | ❌ | ? | ? | ✅ (5 formats) | ? | ✅ PDF | ? |
+| CSV / data export | ✅ CSV | ? | ? | ✅ (5 formats) | ? | ✅ PDF | ? |
 | Offline use | ❌ | ✅ | ✅ | ✅ | ? | ❌ | ✅ |
 | OCR for scanned scripts | ❌ | ? | ? | n/a | ? | ? | ? |
 | Blocking / spacing charts | ❌ | ❌ | ❌ | ❌ | ✅ | ✅ | ❌ |
 | Cue tracking | ❌ | ✅ (Que It) | ✅ tech notes | ❌ | ✅ | ✅ | ❌ |
 | Unlimited collaborators, flat price | ✅ | n/a | n/a | n/a | ❌ per-seat | ✅ to 5 | ? |
-| Self-serve cancellation | ❌ ⚠️ | n/a | n/a | n/a | ✅ | ✅ | ? |
+| Self-serve cancellation | ✅ | n/a | n/a | n/a | ✅ | ✅ | ? |
 
 `?` = not documented in retrieved sources. `—` = not applicable, product has no line notes.
 
@@ -326,29 +326,25 @@ Ordered by how much damage each does.
    ~1800 characters, with a Copy button as the workaround. On a head-to-head feature page we
    lose this comparison outright. **Highest-value thing to fix.** Until then, copy must say
    "prepares each actor's notes for sending" and never "emails your cast."
-2. **⚠️ Self-serve cancellation is not live** (`FEATURES.md` §12). Customers must email
-   `hello@linenotes.io`. Every competitor with a subscription lets users cancel themselves.
-   This is a customer-facing gap on a product that already charges money, and it is blocked on
-   a Stripe Dashboard setting, not code. Competitively it makes any "cancel anytime" claim on
-   the marketing site a trap.
-3. **No actor-facing surface.** Athos's free companion app and Stage Write's free view-only tier
+2. **No actor-facing surface.** Athos's free companion app and Stage Write's free view-only tier
    both give actors a place to *receive*. We give them an email. This is also the most natural
    expansion path.
-4. **No offline mode.** Native competitors keep working in a basement rehearsal room with bad
+3. **No offline mode.** Native competitors keep working in a basement rehearsal room with bad
    wifi; ProductionPro explicitly markets offline scripts. We need a live connection for both
    Firestore and CDN-loaded PDF.js. Theatres are notorious dead zones — expect this objection.
-5. **No export.** Ben Crop's free tool has five export formats; we have none, and the CSV helper
-   in the codebase has no caller. Blocks archiving and any "own your data" claim.
-6. **No OCR.** We require a text-layer PDF and point users at Adobe Acrobat. Scanned and
+4. **Export is CSV only.** Ben Crop's free tool has five formats. The Reports tab now exports
+   the filtered notes as CSV, which covers archiving and "own your data"; there is still no
+   PDF or JSON export, and printing the run report is the only route to a PDF.
+5. **No OCR.** We require a text-layer PDF and point users at Adobe Acrobat. Scanned and
    photocopied scripts are extremely common in schools and community theatre — the segment where
    our platform advantage is otherwise strongest. This directly undercuts our best market.
-7. **Script Editor is mouse-only.** Setup can't be done on a tablet. Competitors are tablet-first.
-8. **No cue tracking or blocking.** Fine — that's category focus, not a defect. But expect
+6. **Script Editor is mouse-only.** Setup can't be done on a tablet. Competitors are tablet-first.
+7. **No cue tracking or blocking.** Fine — that's category focus, not a defect. But expect
    "can it also do…" and answer it cleanly rather than hedging.
-9. **Brand crowding.** Three shipped products use *LineNotes* / *Line Notes*, one with a ™
+8. **Brand crowding.** Three shipped products use *LineNotes* / *Line Notes*, one with a ™
    (§3.2). Organic search for "line notes app" surfaces Line-It, Ben Crop, Thank You 5, and
    UrbanByte's marketing page well before us. Expect to buy or earn that term.
-10. **No proof.** No customers, testimonials, logos, or usage numbers exist and none may be
+9. **No proof.** No customers, testimonials, logos, or usage numbers exist and none may be
     fabricated. Competitors lead with "100+ Broadway shows" and "120,000 users." We must compete
     on demonstrated product, not social proof — which argues for an interactive demo or video
     over a testimonial wall.
@@ -373,7 +369,7 @@ Ordered by how much damage each does.
 **The defensible one-line claim:**
 > The only line notes tool that reads your script and already knows who says every line.
 
-Nobody else can say it. It's true per `FEATURES.md` §7. It centres a capability competitors
+Nobody else can say it. It's true per `FEATURES.md` §8. It centres a capability competitors
 would need real engineering to match, rather than price or breadth.
 
 **Supporting claims, all verifiable:**
@@ -388,21 +384,17 @@ incumbent and the biggest volume of switchers); vs. Stage Write (the per-seat pr
 is our strongest structural argument); vs. Line-It (only if we fix delivery first — today we
 lose their headline).
 
-**Do not claim, per `FEATURES.md`:** emails your cast · cue tracking · offline · OCR · export ·
-fully keyboard-driven · "cancel anytime" unqualified · any customer, testimonial, or usage number
-· that the free-plan limit is enforced.
+**Do not claim, per `FEATURES.md`:** emails your cast · cue tracking · offline · OCR · PDF or
+JSON export · fully keyboard-driven · any customer, testimonial, or usage number · that the
+free-plan limit is enforced. ("Cancel anytime" and CSV export are both accurate now.)
 
 **Product implications ranked by competitive return:**
 
 1. **Server-side email delivery.** Closes the gap on both direct competitors' lead claim.
    Everything else is second.
-2. **Turn on the Stripe cancellation setting.** A dashboard toggle. Removes a live
-   customer-facing dead end and unblocks honest pricing copy.
-3. **Export (CSV/PDF of the report).** The helper already exists without a caller. Cheapest
-   real win on the list.
-4. **A free actor-facing view.** Athos and Stage Write both prove the model; it doubles as
+2. **A free actor-facing view.** Athos and Stage Write both prove the model; it doubles as
    distribution and as a growth loop.
-5. **OCR, or a documented path for scanned scripts.** Unblocks exactly the schools-and-community
+3. **OCR, or a documented path for scanned scripts.** Unblocks exactly the schools-and-community
    segment where our cross-platform advantage is worth the most.
 
 ---

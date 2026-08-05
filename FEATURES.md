@@ -6,11 +6,11 @@ claims would be wrong. This is not copy and not a pitch — it is source materia
 
 **Derived from:** the application source at `/Users/nrg/line-notes`, read on **2026-08-03**
 (HEAD `69a5f11`). Where this document and `line-notes-MARKETING/PRODUCT.md` disagree, this
-document is newer — see [§13 Corrections to PRODUCT.md](#13-corrections-to-productmd).
+document is newer — see [§14 Corrections to PRODUCT.md](#14-corrections-to-productmd).
 
 **Precedence rule:** a feature is real only if code implements it. Several UI elements,
 security rules, and helper modules exist for features that were never built; those are
-listed in [§11 Not shipped](#11-not-shipped--do-not-claim) so they are not mistaken for
+listed in [§12 Not shipped](#12-not-shipped--do-not-claim) so they are not mistaken for
 capabilities.
 
 ---
@@ -242,13 +242,53 @@ Actors without an email show *"No email — update in Cast & Crew tab"* and cann
 emailed. There is **no bulk send and no server-side email delivery.** Describe this as
 "prepares each actor's notes for sending", never "emails your cast".
 
-**Run Reports list** shows title, date, duration, and note count per ended session, with
-**View**, **Resume**, and (owner only) **Delete** — deleting a report cascades to delete
-that session's notes.
+**Recent runs strip.** The Run Show right rail lists only the **three most recent** ended
+sessions — title, date, duration, note count — each with **View** and **Resume**, plus an
+**All reports →** link. The full archive, search, and deletion live on the Reports tab (§7).
+
+**Recurring lines are marked in the report.** Any note whose line has now drawn three or
+more notes from the same actor across separate runs gets a `↻ 3× over 3 runs` badge, and
+the stats table gains a **Recurring Lines** row. A short line under the heading explains
+the mark. See §7 for how the threshold works.
 
 ---
 
-## 7. Script Editor tab
+## 7. Reports tab
+
+Every ended run for the production in one place, at `#/{prodId}/reports`. Readable by every
+member; Delete is owner-only and Resume follows the run-session permission.
+
+**A filter row scopes the whole page** — free-text search (matches line text, note text,
+actor and character names, note type, and run titles and dates), an actor picker, a note-type
+picker, and a range picker (all runs / last 10 / 5 / 3). Every chart, the recurring-line
+list, and the archive all re-render against the same slice.
+
+**Four stat tiles:** runs recorded, notes logged, notes per run (with a sparkline and a
+percentage change against the three runs before, shown only once six runs exist), and lines
+flagged.
+
+**Four charts**, each a single measure in one hue:
+- **Notes per run** — a column chart, oldest run on the left.
+- **Where the notes fall** — notes per printed script page across the whole script. The page
+  axis spans every note in the production, so filtering to one actor does not rescale it.
+- **By actor** — horizontal bars, worst first, with a "N recent" count.
+- **By note type** — horizontal bars with each type's share.
+
+**Lines that keep coming back.** Groups notes by *(cast member × line)* and lists the ones
+that recur. **The threshold requires more than one run:** a line is *watched* at two notes
+and *flagged* at three, and in both cases those notes must fall in at least two separate
+sessions — three notes on one line in a single messy rehearsal does not qualify. Lines are
+matched on their normalised text, so re-drawn zones and re-uploaded scripts still match.
+Each row shows the tier, the actor, the script page, the note types, and the quoted line.
+
+**Export CSV** downloads the filtered notes — run, date, page, actor, type, line, note.
+
+**No PDF or JSON export**, and nothing on this page is emailed or shared outside the
+production.
+
+---
+
+## 8. Script Editor tab
 
 Where the script is prepared. Owner-facing; members with the permission see it read-only
 except for actor assignment.
@@ -296,7 +336,7 @@ OCR.**
 
 ---
 
-## 8. Cast & Crew tab
+## 9. Cast & Crew tab
 
 Cast members are records, not user accounts. Adding someone here does not give them a
 login and sends them nothing.
@@ -318,7 +358,7 @@ Editing a cast member's characters triggers re-tagging of every script page.
 
 ---
 
-## 9. Settings tab (production-level)
+## 10. Settings tab (production-level)
 
 - **Production title** — editable by owners.
 - **Join code** — displayed, with **Regenerate** (old code stops working, new 30-day
@@ -327,7 +367,7 @@ Editing a cast member's characters triggers re-tagging of every script page.
   so the new PDF is re-extracted from scratch. Worth being explicit about anywhere the
   site discusses swapping in a revised script.
 - **Members** — the list of logins, with a role dropdown (Owner / Member), a per-member
-  permission-override panel (see §10), and Remove.
+  permission-override panel (see §11), and Remove.
 - **Danger zone** — owners get **Delete production**, gated behind typing the production
   title; it removes the script, zones, cast, notes, and every report for everyone.
   Non-owners get **Leave production**; their notes stay with the production and they can
@@ -335,7 +375,7 @@ Editing a cast member's characters triggers re-tagging of every script page.
 
 ---
 
-## 10. Roles and permissions
+## 11. Roles and permissions
 
 Two production roles plus an internal `superadmin` claim used for support, not sold.
 
@@ -361,7 +401,7 @@ Firestore security rules mirror these checks server-side.
 
 ---
 
-## 11. Not shipped — do not claim
+## 12. Not shipped — do not claim
 
 Everything in this list is either absent, dormant, or present only as scaffolding.
 
@@ -370,8 +410,8 @@ Everything in this list is either absent, dormant, or present only as scaffoldin
   standby rail, no cue sheet. `scriptCues` and `diagrams` appear in the security rules and
   storage rules, but **no code reads or writes them.** Any cue-tracking claim is false.
 - **OCR.** The app requires a text-layer PDF and points users to Adobe Acrobat.
-- **CSV or JSON export.** A CSV helper exists in the codebase with no caller; there is no
-  export button anywhere.
+- **PDF or JSON export.** CSV export ships on the Reports tab (§7); there is no PDF export
+  and no JSON export. Printing the run report is the only route to a PDF.
 - **JSON import.** An import modal module exists in the codebase and is never imported.
 - **Server-side email.** Delivery is `mailto:` plus clipboard only.
 - **Offline mode.** No local persistence; the app needs a connection.
@@ -388,13 +428,13 @@ Everything in this list is either absent, dormant, or present only as scaffoldin
 - **The topbar production title and role badge.** Both elements are empty in normal use.
   The production name appears in the Run Show sidebar header instead.
 
-**Stale internal doc:** `DESIGN.md` in the app repo still describes four note types
-(DROP / ADD / TRANS / NOTE). That is wrong; the app has the seven in §5.3. Do not source
-note types from `DESIGN.md`.
+**Note types have one source.** They live in `src/shared/note-types.js` in the app repo, and
+`DESIGN.md` there now mirrors that list. (It previously described four types —
+DROP / ADD / TRANS / NOTE — which never existed in the shipped app.)
 
 ---
 
-## 12. Pricing, billing, and the cancellation gap
+## 13. Pricing and billing
 
 **Plans**
 
@@ -417,24 +457,24 @@ portal link for updating cards and downloading invoices; a red site-wide banner 
 **The upgrade gate is client-side.** It counts owner-role cards on the dashboard. Do not
 describe the free-plan limit as enforced.
 
-### ⚠ Self-serve cancellation is not live
+### Self-serve cancellation is live
 
-**Customers cannot cancel their own subscription.** The Account page tells them to email
-`hello@linenotes.io`, and every cancellation is processed by hand in the Stripe Dashboard.
-This is blocked on a Stripe Dashboard setting — "Billing → Customer portal →
-Functionality → Cancel subscriptions" — which must be switched on in both test and live
-mode, not on any code change.
+**Customers cancel themselves.** The Account page's "Manage billing & cancel →" button
+opens the Stripe-hosted customer portal, where cancellation, card updates and invoices all
+live. Nothing is processed by hand any more.
 
-**Consequence for the site:** the in-app upgrade modal already says *"cancel anytime"*,
-which today means "email us and we'll cancel it". If the marketing site says "cancel
-anytime" without qualification, a visitor who subscribes will hit a dead end. Until the
-Stripe setting is enabled, either qualify the phrase or leave cancellation copy out. Flag
-this to the owner rather than working around it silently — it is a customer-facing gap on
-a product that already charges money.
+This works because "Cancel subscriptions" is enabled on the **default portal
+configuration** in the Stripe Dashboard (Billing → Customer portal → Cancellations), set to
+cancel at the end of the billing period. That setting is per-mode — test and live are
+separate records — so if cancellation ever disappears for customers, check the mode you are
+debugging before assuming a code change.
+
+**Consequence for the site:** *"cancel anytime"* is now accurate and needs no
+qualification.
 
 ---
 
-## 13. Corrections to PRODUCT.md
+## 14. Corrections to PRODUCT.md
 
 `line-notes-MARKETING/PRODUCT.md` records observations from **2026-08-02**. The following
 entries are now wrong or incomplete. Everything else in it holds.
@@ -451,7 +491,7 @@ entries are now wrong or incomplete. Everything else in it holds.
 
 ---
 
-## 14. Platform constraints worth knowing before writing copy
+## 15. Platform constraints worth knowing before writing copy
 
 - **Desktop-first.** Below 768 px the tabs move to a bottom bar and the Run Show sidebar
   becomes a drawer below 1024 px, so note-taking is usable on a tablet. **The Script
@@ -467,7 +507,7 @@ entries are now wrong or incomplete. Everything else in it holds.
 
 ---
 
-## 15. Honest one-paragraph summary
+## 16. Honest one-paragraph summary
 
 Line Notes replaces the pad-and-spreadsheet workflow for line notes. A stage manager
 uploads a text-layer PDF script; the app extracts clickable line zones and figures out who

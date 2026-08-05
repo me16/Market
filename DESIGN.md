@@ -159,5 +159,5 @@ fall out of view otherwise.
    be traceable to `FEATURES.md` (the source-level inventory) or PRODUCT.md's "Verified
    App Behaviour". The first build of this page invented four note types, F-key shortcuts,
    a live session timer, live counters, a cue-standby rail, email invitations, offline
-   sync, and a JSON export — none of which exist. FEATURES.md §11 "Not shipped" is the
+   sync, and a JSON export — none of which exist. FEATURES.md §12 "Not shipped" is the
    list to check against before writing any capability sentence.

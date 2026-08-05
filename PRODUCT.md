@@ -195,19 +195,20 @@ it. Consult FEATURES.md before writing any functional claim.
   is enforced **client-side only** — do not describe it as enforced.
 - Enterprise is contact-sales with no published price. Its inclusions are the owner's
   forward commitments listed above, not observable app features.
-- ⚠ **Self-serve cancellation is not live.** Customers cannot cancel their own
-  subscription; the Account page tells them to email `hello@linenotes.io` and every
-  cancellation is processed by hand in the Stripe Dashboard. This is blocked on a Stripe
-  Dashboard setting (Billing → Customer portal → Functionality → Cancel subscriptions) in
-  both test and live mode, not on code. **Until that is switched on, "cancel anytime" must
-  be qualified or left off the marketing site** — an unqualified promise sends a paying
-  visitor into a dead end. Raise this with the owner rather than working around it.
-- Not shipped, do not imply: cue tracking of any kind; OCR performed by Line Notes; CSV or
-  JSON export; JSON import; server-side email; offline mode; live session timer or live
-  note counters; page timing (an "Edit Times" control exists but nothing ever writes a page
-  log); email invitations; email address changes; SSO/SAML; API access; audit log; native
-  mobile apps; changelog, roadmap, docs, API reference, status page, press kit, and about
-  pages.
+- **Self-serve cancellation is live.** The Account page's "Manage billing & cancel →"
+  button opens the Stripe customer portal, where customers cancel, update a card and
+  download invoices themselves. "Cancel anytime" is accurate and needs no qualification.
+- **A Reports tab is live.** Every recorded run in one searchable place, with charts for
+  notes per run, notes per script page, notes by actor and notes by type; a recurring-line
+  list that flags any line the same actor has been noted on three or more times across
+  separate runs; and CSV export of the filtered notes. Run reports themselves mark those
+  recurring lines with a ↻ badge.
+- Not shipped, do not imply: cue tracking of any kind; OCR performed by Line Notes; JSON
+  export or import; PDF export (printing the report is the path); server-side email;
+  offline mode; live session timer or live note counters; page timing (an "Edit Times"
+  control exists but nothing ever writes a page log); email invitations; email address
+  changes; SSO/SAML; API access; audit log; native mobile apps; changelog, roadmap, docs,
+  API reference, status page, press kit, and about pages.
 - Terminology: production, member, cast member, character, line zone, run session, line
   note, note type, run report, scratchpad, join code, script page offset, bookmark. The
   audience's words — PSM, ASM, prompt book, cue sheet, French scene — are fine as language
