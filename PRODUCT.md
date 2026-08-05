@@ -99,14 +99,16 @@ it. Consult FEATURES.md before writing any functional claim.
 - **No live session timer and no live note counters** anywhere in Run Show. Duration and
   note count appear only in the run report afterward. (Per-cast-member note counts do
   appear in the sidebar for the current session.)
-- Right rail while idle: `Start Run` + `Run Reports` list. While running: session title,
-  `End Run`, and `Scratchpad` — nothing else.
+- Right rail while idle: `Start Run` plus a **recent runs** strip (the three most recent
+  ended sessions and an `All reports →` link). While running: session title, `End Run`, and
+  `Scratchpad`, nothing else.
 - `Start Run` opens a modal asking for **session title** and **total script pages**.
 - `End Run` opens a modal for final scratchpad notes, then `End & Generate Report`. An
   ended session can be **resumed**.
-- Run report contains: Total Duration, Page Count, Note Count, SM Notes (the scratchpad),
-  and **Line Notes by Actor**. Actions: `Print / Save PDF`, `Send Email`, `Close`.
-  **No CSV or JSON export exists** anywhere in the app.
+- Run report contains: Total Duration, Page Count, Note Count, a Recurring Lines count when
+  any apply, SM Notes (the scratchpad), and **Line Notes by Actor**. Actions:
+  `Print / Save PDF`, `Send Email`, `Close`. **CSV export lives on the Reports tab**, not
+  here; there is no JSON export and no PDF export beyond printing.
 - **`Send Email` is a per-actor `mailto:` and clipboard hand-off, not a mail sender.**
   Each actor gets an **Email** button (opens the user's own mail client, body truncated at
   ~1800 characters) and a **Copy** button (full untruncated list). There is no bulk send
@@ -198,10 +200,10 @@ it. Consult FEATURES.md before writing any functional claim.
 - **Self-serve cancellation is live.** The Account page's "Manage billing & cancel →"
   button opens the Stripe customer portal, where customers cancel, update a card and
   download invoices themselves. "Cancel anytime" is accurate and needs no qualification.
-- **A Reports tab is live.** Every recorded run in one searchable place, with charts for
-  notes per run, notes per script page, notes by actor and notes by type; a recurring-line
-  list that flags any line the same actor has been noted on three or more times across
-  separate runs; and CSV export of the filtered notes. Run reports themselves mark those
+- **A Reports tab is live**, with two sub-pages. *All runs* is a searchable, sortable table
+  of every recorded run. *Insights* holds charts for notes per run, per script page, per
+  actor and per type, plus a list of lines the same actor has been noted on three or more
+  times across separate runs. Filtered notes export as CSV, and run reports mark those
   recurring lines with a ↻ badge.
 - Not shipped, do not imply: cue tracking of any kind; OCR performed by Line Notes; JSON
   export or import; PDF export (printing the report is the path); server-side email;

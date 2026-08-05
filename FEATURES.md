@@ -242,49 +242,56 @@ Actors without an email show *"No email — update in Cast & Crew tab"* and cann
 emailed. There is **no bulk send and no server-side email delivery.** Describe this as
 "prepares each actor's notes for sending", never "emails your cast".
 
-**Recent runs strip.** The Run Show right rail lists only the **three most recent** ended
-sessions — title, date, duration, note count — each with **View** and **Resume**, plus an
-**All reports →** link. The full archive, search, and deletion live on the Reports tab (§7).
+**Recent runs strip.** The Run Show right rail lists the **three most recent** ended
+sessions (title, date, duration, note count), each with **View** and **Resume**, plus an
+**All reports →** link. The full archive, search and deletion live on the Reports tab (§7).
 
-**Recurring lines are marked in the report.** Any note whose line has now drawn three or
-more notes from the same actor across separate runs gets a `↻ 3× over 3 runs` badge, and
-the stats table gains a **Recurring Lines** row. A short line under the heading explains
-the mark. See §7 for how the threshold works.
+**Recurring lines are marked in the report.** A note whose line has drawn three or more
+notes from the same actor across separate runs gets a `↻ 3× over 3 runs` badge, and the
+stats table gains a **Recurring Lines** row. See §7 for the threshold.
 
 ---
 
 ## 7. Reports tab
 
-Every ended run for the production in one place, at `#/{prodId}/reports`. Readable by every
-member; Delete is owner-only and Resume follows the run-session permission.
+At `#/{prodId}/reports`. Readable by every member; Delete is owner-only, Resume follows the
+run-session permission. **Two sub-pages,** reached from a menu that opens on hover or
+keyboard focus over the topbar tab, and from a segmented control in the page header:
 
-**A filter row scopes the whole page** — free-text search (matches line text, note text,
-actor and character names, note type, and run titles and dates), an actor picker, a note-type
-picker, and a range picker (all runs / last 10 / 5 / 3). Every chart, the recurring-line
-list, and the archive all re-render against the same slice.
+| Sub-page | Route | What it is |
+|---|---|---|
+| **All runs** (default) | `#/{prodId}/reports` | Every ended run as a sortable table |
+| **Insights** | `#/{prodId}/reports/insights` | Stat tiles, four charts, recurring lines |
 
-**Four stat tiles:** runs recorded, notes logged, notes per run (with a sparkline and a
-percentage change against the three runs before, shown only once six runs exist), and lines
-flagged.
+Both read one dataset through one filter row: free-text search (line text, note text, actor
+and character names, note type, run titles and dates), an actor picker, a note-type picker,
+and a range picker (all runs / last 10 / 5 / 3). Filters and sort survive a sub-page switch.
 
-**Four charts**, each a single measure in one hue:
-- **Notes per run** — a column chart, oldest run on the left.
-- **Where the notes fall** — notes per printed script page across the whole script. The page
-  axis spans every note in the production, so filtering to one actor does not rescale it.
-- **By actor** — horizontal bars, worst first, with a "N recent" count.
-- **By note type** — horizontal bars with each type's share.
+**All runs** is a table of Run, Date, Duration, Notes and Actors. Every column sorts, and
+clicking a column again reverses it. Row actions are View, Times, Resume and Delete. When a
+filter is active the Notes column shows matching notes against the run's total, and runs
+with no match drop out of the list.
 
-**Lines that keep coming back.** Groups notes by *(cast member × line)* and lists the ones
-that recur. **The threshold requires more than one run:** a line is *watched* at two notes
-and *flagged* at three, and in both cases those notes must fall in at least two separate
-sessions — three notes on one line in a single messy rehearsal does not qualify. Lines are
-matched on their normalised text, so re-drawn zones and re-uploaded scripts still match.
-Each row shows the tier, the actor, the script page, the note types, and the quoted line.
+**Insights** carries four stat tiles (runs recorded, notes logged, notes per run with a
+sparkline and a change against the three runs before, lines flagged) and four charts, each
+a single measure in one hue:
 
-**Export CSV** downloads the filtered notes — run, date, page, actor, type, line, note.
+- **Notes per run.** Column chart, oldest run on the left.
+- **Where the notes fall.** Notes per printed script page. The page axis spans every note in
+  the production, so filtering to one actor does not rescale it.
+- **By actor.** Horizontal bars, most-noted first, with a recent count.
+- **By note type.** Horizontal bars with each type's share.
 
-**No PDF or JSON export**, and nothing on this page is emailed or shared outside the
-production.
+**Lines that keep coming back** groups notes by *(cast member × line)* and lists the ones
+that recur. **The threshold needs more than one run.** A line is *watched* at two notes and
+*flagged* at three, and either way those notes must fall in at least two separate sessions,
+so three notes on one line in a single messy rehearsal does not qualify. Lines match on
+normalised text, which survives re-drawn zones and re-uploaded scripts. Each row shows the
+tier, the actor, the script page, the note types and the quoted line.
+
+**Export CSV** downloads the filtered notes: run, date, page, actor, type, line, note.
+
+**No PDF or JSON export.** Nothing on this page is emailed or shared outside the production.
 
 ---
 
